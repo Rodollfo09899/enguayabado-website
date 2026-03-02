@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enguayabado | Catering JR</title>
+  <meta name="description" content="Enguayabado by Catering JR. Ordena fácil: arma tu pedido y envíalo por SMS o WhatsApp." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap header__inner">
+      <div class="brand">
+        <div class="brand__logo">JR</div>
+        <div class="brand__text">
+          <div class="brand__title">Enguayabado</div>
+          <div class="brand__sub">by Catering JR • Bay Area</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <a href="#menu">Menú</a>
+        <a href="#order">Ordenar</a>
+        <a href="#photos">Fotos</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="nav__btn" id="navBtn" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <h1>Comida que pega duro. Fácil de ordenar.</h1>
+          <p>Arma tu pedido y envíalo directo a mi teléfono por SMS o WhatsApp. Sin apps de terceros.</p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#order">Ordenar ahora</a>
+            <a class="btn btn--ghost" href="#menu">Ver menú</a>
+          </div>
+
+          <div class="hero__meta">
+            <div class="pill">⏱ Respuesta rápida</div>
+            <div class="pill">💳 Zelle / Venmo</div>
+            <div class="pill">🌶️ Fusion Latin</div>
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="card">
+            <div class="card__title">Contacto rápido</div>
+            <div class="card__body">
+              <div class="row"><span>Eventos</span><strong>Por reservación</strong></div>
+              <a class="link" id="igLinkTop" href="#" target="_blank" rel="noreferrer">Instagram</a>
+              <a class="link" id="phoneTop" href="#">Llamar</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__title">Promesa</div>
+            <div class="card__body">
+              <ul class="bullets">
+                <li>Ingredientes frescos</li>
+                <li>Plating / presentación</li>
+                <li>Family style disponible</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Menú Enguayabado</h2>
+          <p>Selecciona items para armar tu pedido.</p>
+        </div>
+
+        <div class="menu-controls">
+          <input id="search" class="input" type="search" placeholder="Buscar (tacos, patacón, ramen...)" />
+          <select id="category" class="input">
+            <option value="all">Todas las categorías</option>
+          </select>
+        </div>
+
+        <div id="menuGrid" class="grid"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="order">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Ordenar (directo a tu teléfono)</h2>
+          <p>Llena los datos y manda el pedido por SMS o WhatsApp. Tú confirmas total y horario.</p>
+        </div>
+
+        <div class="order">
+          <div class="order__left">
+            <div class="panel">
+              <h3>Tu pedido</h3>
+              <div id="cartEmpty" class="muted">Aún no agregas items.</div>
+              <div id="cartList" class="cart"></div>
+
+              <div class="cart__footer">
+                <div class="row">
+                  <span>Subtotal estimado</span>
+                  <strong id="subtotal">$0.00</strong>
+                </div>
+                <div class="muted small">
+                  *Precio estimado. Confirmo total final por mensaje (impuestos/entrega si aplica).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order__right">
+            <div class="panel">
+              <h3>Datos</h3>
+
+              <label class="label">Nombre</label>
+              <input id="custName" class="input" placeholder="Tu nombre" />
+
+              <label class="label">Teléfono</label>
+              <input id="custPhone" class="input" placeholder="(415) 000-0000" inputmode="tel" />
+
+              <label class="label">Fecha y hora</label>
+              <input id="custDate" class="input" placeholder="Ej: Sáb 6pm" />
+
+              <label class="label">Tipo</label>
+              <select id="custType" class="input">
+                <option value="pickup">Pickup</option>
+                <option value="delivery">Delivery</option>
+                <option value="catering">Catering / Evento</option>
+              </select>
+
+              <label class="label">Dirección (si aplica)</label>
+              <input id="custAddr" class="input" placeholder="Ciudad + dirección" />
+
+              <label class="label">Notas</label>
+              <textarea id="custNotes" class="input" rows="3" placeholder="Sin cebolla, extra salsa, alergias, etc."></textarea>
+
+              <div class="btn-row">
+                <button id="sendSms" class="btn btn--primary">Enviar por SMS</button>
+                <button id="sendWa" class="btn btn--ghost">Enviar por WhatsApp</button>
+              </div>
+
+              <div class="muted small">
+                Pagos: Zelle / Venmo. Confirmo contigo y te mando instrucciones.
+              </div>
+            </div>
+
+            <div class="panel">
+              <h3>Fotos (sin lag)</h3>
+              <p class="muted">Pon fotos WebP en <code>assets/img/</code>. Esta web usa lazy-load.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="photos">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Fotos reales</h2>
+          <p>Cambia estos archivos: <code>photo-1.webp</code>, <code>photo-2.webp</code>, <code>photo-3.webp</code>.</p>
+        </div>
+
+        <div class="photos">
+          <figure class="photo">
+            <img src="assets/img/photo-1.webp" loading="lazy" width="900" height="650" alt="Foto 1" />
+            <figcaption>Tu plato estrella</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="assets/img/photo-2.webp" loading="lazy" width="900" height="650" alt="Foto 2" />
+            <figcaption>Live cooking</figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="assets/img/photo-3.webp" loading="lazy" width="900" height="650" alt="Foto 3" />
+            <figcaption>Combo / family style</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="reviews">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Reviews</h2>
+          <p>Links ligeros a Google/Yelp (no embeds pesados).</p>
+        </div>
+
+        <div class="reviews">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Sabor brutal y presentación VIP.”</p>
+            <div class="muted small">— Cliente</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Todo caliente, organizado y profesional.”</p>
+            <div class="muted small">— Cliente</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Las salsas están en otro nivel.”</p>
+            <div class="muted small">— Cliente</div>
+          </div>
+        </div>
+
+        <div class="review-links">
+          <a class="btn btn--primary" id="googleReviewLink" href="#" target="_blank" rel="noreferrer">Dejar review en Google</a>
+          <a class="btn btn--ghost" id="yelpLink" href="#" target="_blank" rel="noreferrer">Ver Yelp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Contacto</h2>
+          <p>Listo para leads directo.</p>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <div class="card__title">Teléfono</div>
+            <div class="card__body">
+              <a id="phoneLink" class="link" href="#">Llamar / SMS</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__title">Instagram</div>
+            <div class="card__body">
+              <a id="igLink" class="link" href="#" target="_blank" rel="noreferrer">Abrir IG</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__title">Ubicación</div>
+            <div class="card__body">
+              <div class="muted">Bay Area</div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="muted small">© <span id="year"></span> Catering JR • Enguayabado</div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
