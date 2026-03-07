@@ -29,9 +29,9 @@
     { "id": "arepa", "name": "Arepa", "category": "Patacones / Arepas", "price": 12.0, "description": "Rellena (edita)." },
     { "id": "tostada", "name": "Tostada", "category": "Tostadas", "price": 10.0, "description": "Con proteína y salsas." },
     { "id": "ramen", "name": "Ramen (Fusión)", "category": "Ramen", "price": 16.0, "description": "Ramen con tu toque." },
-    { "id": "Jamaica", "name": "Jamaica", "category": "Bebidas Frías", "price": 7.0, "description": "Hibiscus agua fresca" }
-        { "id": "Horchata", "name": "Horchata", "category": "Bebidas Frías", "price": 7.0, "description": " A sweet and milky refreshing beveragea" }
-
+   { "id": "jamaica", "name": "Jamaica", "category": "Bebidas Frías", "price": 7.0, "description": "Hibiscus agua fresca" },
+{ "id": "horchata", "name": "Horchata", "category": "Bebidas Frías", "price": 7.0, "description": "A sweet and milky refreshing beverage" }
+    
     
   ]
 }
