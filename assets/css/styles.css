@@ -451,3 +451,12 @@ max-height:42vh;
 }
 
 }
+.photo-trigger{
+padding:0;
+cursor:pointer;
+appearance:none;
+-webkit-appearance:none;
+text-align:left;
+color:inherit;
+font:inherit;
+}
