@@ -190,50 +190,49 @@ Open in Apple Maps
 
   <section class="photos-section" id="photos">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section__head">
       <h2>Fotos reales</h2>
       <p>Tap en cualquier foto para verla grande y revisar el plato.</p>
     </div>
 
-     <div class="photos-grid-compact">
+    <div class="photos-grid-compact">
+      <button
+        type="button"
+        class="photo-card photo-card-lg photo-trigger"
+        data-title="Patacón Sensei"
+        data-price="$16"
+        data-desc="Patacón crujiente con proteína, queso, toppings frescos y salsa de la casa."
+        data-img="images/patacon-sensei-enguayabado-small.webp"
+      >
+        <img src="images/patacon-sensei-enguayabado-small.webp" alt="Patacón Sensei">
+        <span class="photo-label">Patacón Sensei</span>
+      </button>
 
-<button
-type="button"
-class="photo-card photo-card-lg photo-trigger"
-data-title="Patacón Sensei"
-data-price="$16"
-data-desc="Patacón crujiente con proteína, queso, toppings frescos y salsa de la casa."
-data-img="images/patacon-sensei-enguayabado-small.webp"
->
-<img src="images/patacon-sensei-enguayabado-small.webp" alt="Patacón Sensei">
-<span class="photo-label">Patacón Sensei</span>
-</button>
+      <button
+        type="button"
+        class="photo-card photo-trigger"
+        data-title="Birria Tostada"
+        data-price="$14"
+        data-desc="Tostada crujiente con birria, queso, cebolla, cilantro y consomé para dip."
+        data-img="images/birria-tostada-enguayabado-small.webp"
+      >
+        <img src="images/birria-tostada-enguayabado-small.webp" alt="Birria Tostada">
+        <span class="photo-label">Birria Tostada</span>
+      </button>
 
-<button
-type="button"
-class="photo-card photo-trigger"
-data-title="Birria Tostada"
-data-price="$14"
-data-desc="Tostada crujiente con birria, queso, cebolla, cilantro y consomé para dip."
-data-img="images/birria-tostada-enguayabado-small.webp"
->
-<img src="images/birria-tostada-enguayabado-small.webp" alt="Birria Tostada">
-<span class="photo-label">Birria Tostada</span>
-</button>
-
-<button
-type="button"
-class="photo-card photo-trigger"
-data-title="Salchipapa"
-data-price="$13"
-data-desc="Papas crujientes con salchicha y salsas de la casa."
-data-img="images/salchipapa-enguayabado-small.webp"
->
-<img src="images/salchipapa-enguayabado-small.webp" alt="Salchipapa">
-<span class="photo-label">Salchipapa</span>
-</button>
-      
-</div>
+      <button
+        type="button"
+        class="photo-card photo-trigger"
+        data-title="Salchipapa"
+        data-price="$13"
+        data-desc="Papas crujientes con salchicha y salsas de la casa."
+        data-img="images/salchipapa-enguayabado-small.webp"
+      >
+        <img src="images/salchipapa-enguayabado-small.webp" alt="Salchipapa">
+        <span class="photo-label">Salchipapa</span>
+      </button>
+    </div>
+  </div>
 </section>
 
     <section class="section section--alt" id="reviews">
@@ -309,52 +308,53 @@ data-img="images/salchipapa-enguayabado-small.webp"
 
   <script src="assets/js/app.js"></script>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-  <div class="lightbox__backdrop" data-close="true"></div>
+ <section class="photos-section" id="photos">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Fotos reales</h2>
+      <p>Tap en cualquier foto para verla grande y revisar el plato.</p>
+    </div>
 
-  <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
-    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Cerrar">
-      ✕
-    </button>
+    <div class="photos-grid-compact">
+      <button
+        type="button"
+        class="photo-card photo-card-lg photo-trigger"
+        data-title="Patacón Sensei"
+        data-price="$18"
+        data-desc="Patacón crujiente con proteína, queso, toppings frescos y salsa de la casa."
+        data-img="images/patacon-sensei-enguayabado-small.webp"
+      >
+        <img src="images/patacon-sensei-enguayabado-small.webp" alt="Patacón Sensei">
+        <span class="photo-label">Patacón Sensei</span>
+      </button>
 
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-  <div class="lightbox__backdrop"></div>
+      <button
+        type="button"
+        class="photo-card photo-trigger"
+        data-title="Tostadas"
+        data-price="$14"
+        data-desc="Tostadas con base de guacamole y tu preferencia de proteinas"
+        data-img="images/tostada-enguayabado-small.webp"
+      >
+        <img src="images/tostada-enguayabado-small.webp" alt="Birria Tostada">
+        <span class="photo-label">Tostadas</span>
+      </button>
 
-  <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
-    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Cerrar">✕</button>
-
-    <div class="lightbox__content">
-      <div class="lightbox__media">
-        <img id="lightboxImage" src="" alt="">
-      </div>
-
-      <div class="lightbox__info">
-        <h3 id="lightboxTitle">Plato</h3>
-        <div class="lightbox__price" id="lightboxPrice">$0</div>
-        <p class="lightbox__desc" id="lightboxDesc"></p>
-
-        <div class="lightbox__addons">
-          <h4>Add-ons</h4>
-          <ul>
-            <li>Extra meat +$4</li>
-            <li>Extra cheese +$2</li>
-            <li>Avocado +$2</li>
-            <li>Fried egg +$2</li>
-            <li>Bacon +$3</li>
-            <li>Extra consommé +$3</li>
-          </ul>
-        </div>
-
-        <div class="lightbox__actions">
-          <a id="lightboxWhatsBtn" class="btn btn--primary" href="#" target="_blank" rel="noopener">
-            Ordenar por WhatsApp
-          </a>
-        </div>
-      </div>
+      <button
+        type="button"
+        class="photo-card photo-trigger"
+        data-title="Choriperro"
+        data-price="$15"
+        data-desc="Chorriperro estilo de la casa."
+        data-img="images/chorriperro-enguayabado-small.webp"
+      >
+        <img src="images/chorriperro-enguayabado-small.webp" alt="Salchipapa">
+        <span class="photo-label">Choriperro</span>
+      </button>
     </div>
   </div>
-</div>
-  <script>
+</section>
+<script>
 const photoTriggers = document.querySelectorAll('.photo-trigger');
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
@@ -366,7 +366,7 @@ const lightboxWhatsBtn = document.getElementById('lightboxWhatsBtn');
 
 const businessPhone = '14153496404';
 
-function openLightbox(data){
+function openLightbox(data) {
   const title = data.title || '';
   const price = data.price || '';
   const desc = data.desc || '';
@@ -382,31 +382,33 @@ function openLightbox(data){
   lightboxWhatsBtn.href = `https://wa.me/${businessPhone}?text=${text}`;
 
   lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
 
-function closeLightbox(){
+function closeLightbox() {
   lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
   lightboxImage.src = '';
   document.body.style.overflow = '';
 }
 
-photoTriggers.forEach(btn=>{
-  btn.addEventListener('click',()=>{
+photoTriggers.forEach((btn) => {
+  btn.addEventListener('click', () => {
     openLightbox(btn.dataset);
   });
 });
 
 lightboxClose.addEventListener('click', closeLightbox);
 
-lightbox.addEventListener('click', e=>{
-  if(e.target.classList.contains('lightbox__backdrop')){
+lightbox.addEventListener('click', (e) => {
+  if (e.target.classList.contains('lightbox__backdrop')) {
     closeLightbox();
   }
 });
 
-document.addEventListener('keydown', e=>{
-  if(e.key === 'Escape'){
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
     closeLightbox();
   }
 });
