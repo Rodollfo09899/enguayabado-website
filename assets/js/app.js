@@ -529,3 +529,10 @@ function checkDistance() {
     '_blank'
   );
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const dateInput = document.getElementById("custDate");
+  if (dateInput) {
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.min = today;
+  }
+});
