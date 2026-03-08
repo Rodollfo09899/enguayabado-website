@@ -158,9 +158,7 @@ function applyFilters() {
       safeStr(it.name),
       safeStr(it.category),
       safeStr(it.description)
-    ]
-      .join(' ')
-      .toLowerCase();
+    ].join(' ').toLowerCase();
 
     const matchesSearch = !searchTerm || haystack.includes(searchTerm);
 
@@ -212,13 +210,8 @@ function renderMenu(items) {
     const addBtn = card.querySelector('[data-add]');
     const add2Btn = card.querySelector('[data-add2]');
 
-    if (addBtn) {
-      addBtn.addEventListener('click', () => addToCart(it.id, 1));
-    }
-
-    if (add2Btn) {
-      add2Btn.addEventListener('click', () => addToCart(it.id, 2));
-    }
+    if (addBtn) addBtn.addEventListener('click', () => addToCart(it.id, 1));
+    if (add2Btn) add2Btn.addEventListener('click', () => addToCart(it.id, 2));
 
     els.menuGrid.appendChild(card);
   }
