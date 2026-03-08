@@ -130,8 +130,23 @@
               <label class="label" for="custPhone">Teléfono</label>
               <input id="custPhone" class="input" placeholder="(415) 000-0000" inputmode="tel" />
 
-              <label class="label" for="custDate">Fecha y hora</label>
-              <input id="custDate" class="input" placeholder="Ej: Sáb 6pm" />
+              <label class="label" for="custDate">Fecha</label>
+<input
+  id="custDate"
+  class="input"
+  type="date"
+  min=""
+/>
+
+<label class="label" for="custTime">Hora</label>
+<input
+  id="custTime"
+  class="input"
+  type="time"
+  min="11:00"
+  max="22:00"
+  step="900"
+/>
 <label class="label" for="custType">Tipo</label>
 <select id="custType" class="input">
   <option value="pickup">Pickup</option>
