@@ -269,7 +269,7 @@ Check Distance
       </div>
     </section>
 
-    <section class="section" id="contact">
+        <section class="section" id="contact">
       <div class="wrap">
         <div class="section__head">
           <h2>Contacto</h2>
@@ -307,113 +307,5 @@ Check Distance
   </main>
 
   <script src="assets/js/app.js"></script>
-
- <section class="photos-section" id="photos">
-  <div class="wrap">
-    <div class="section__head">
-      <h2>Fotos reales</h2>
-      <p>Tap en cualquier foto para verla grande y revisar el plato.</p>
-    </div>
-
-    <div class="photos-grid-compact">
-      <button
-        type="button"
-        class="photo-card photo-card-lg photo-trigger"
-        data-title="Patacón Sensei"
-        data-price="$18"
-        data-desc="Patacón crujiente con proteína, queso, toppings frescos y salsa de la casa."
-        data-img="images/patacon-sensei-enguayabado-small.webp"
-      >
-        <img src="images/patacon-sensei-enguayabado-small.webp" alt="Patacón Sensei">
-        <span class="photo-label">Patacón Sensei</span>
-      </button>
-
-      <button
-        type="button"
-        class="photo-card photo-trigger"
-        data-title="Tostadas"
-        data-price="$14"
-        data-desc="Tostadas con base de guacamole y tu preferencia de proteinas"
-        data-img="images/tostada-enguayabado-small.webp"
-      >
-        <img src="images/tostada-enguayabado-small.webp" alt="Birria Tostada">
-        <span class="photo-label">Tostadas</span>
-      </button>
-
-      <button
-        type="button"
-        class="photo-card photo-trigger"
-        data-title="Choriperro"
-        data-price="$15"
-        data-desc="Chorriperro estilo de la casa."
-        data-img="images/chorriperro-enguayabado-small.webp"
-      >
-        <img src="images/chorriperro-enguayabado-small.webp" alt="Salchipapa">
-        <span class="photo-label">Choriperro</span>
-      </button>
-    </div>
-  </div>
-</section>
-</script>
-<script>
-const photoTriggers = document.querySelectorAll('.photo-trigger');
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightboxImage');
-const lightboxTitle = document.getElementById('lightboxTitle');
-const lightboxPrice = document.getElementById('lightboxPrice');
-const lightboxDesc = document.getElementById('lightboxDesc');
-const lightboxClose = document.getElementById('lightboxClose');
-const lightboxWhatsBtn = document.getElementById('lightboxWhatsBtn');
-
-const businessPhone = '14153496404';
-
-function openLightbox(data) {
-  const title = data.title || '';
-  const price = data.price || '';
-  const desc = data.desc || '';
-  const img = data.img || '';
-
-  lightboxImage.src = img;
-  lightboxImage.alt = title;
-  lightboxTitle.textContent = title;
-  lightboxPrice.textContent = price;
-  lightboxDesc.textContent = desc;
-
-  const text = encodeURIComponent(`Hola, quiero ordenar ${title}`);
-  lightboxWhatsBtn.href = `https://wa.me/${businessPhone}?text=${text}`;
-
-  lightbox.classList.add('is-open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-  lightbox.classList.remove('is-open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  lightboxImage.src = '';
-  document.body.style.overflow = '';
-}
-
-photoTriggers.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    openLightbox(btn.dataset);
-  });
-});
-
-lightboxClose.addEventListener('click', closeLightbox);
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target.classList.contains('lightbox__backdrop')) {
-    closeLightbox();
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
-    closeLightbox();
-  }
-});
-</script>
-  
 </body>
 </html>
