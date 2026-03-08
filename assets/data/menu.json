@@ -16,22 +16,63 @@
     "Tostadas",
     "Ramen",
     "Bebidas Frías"
-  ],
-  "items": [
-    { "id": "enguayabado_signature", "name": "Enguayabado (Signature)", "category": "Especialidades", "price": 18.0, "description": "Tu plato estrella." },
-    { "id": "tacos_mini", "name": "Street Tacos (Orden)", "category": "Tacos", "price": 12.0, "description": "Elige proteína." },
-
-    { "id": "quesabirria", "name": "Beef Quesabirria (Orden)", "category": "quesabirria", "price": 15.0, "description": "Beef." },
-    { "id": "Salchipapas", "name": "salchipapa (Orden)", "category": "salchipapa", "price": 14.0, "description": "Pork sausage & French fries ." },
-    { "id": "choripan", "name": "choripan  (Orden)", "category": "choripan", "price": 14.0, "description": "Sandwich chorizo loaded ." },
-
-    { "id": "patacon", "name": "Patacón", "category": "Patacones / Arepas", "price": 13.0, "description": "Crocante con toppings y salsa." },
-    { "id": "arepa", "name": "Arepa", "category": "Patacones / Arepas", "price": 12.0, "description": "Rellena (edita)." },
-    { "id": "tostada", "name": "Tostada", "category": "Tostadas", "price": 10.0, "description": "Con proteína y salsas." },
-    { "id": "ramen", "name": "Ramen (Fusión)", "category": "Ramen", "price": 16.0, "description": "Ramen con tu toque." },
-   { "id": "jamaica", "name": "Jamaica", "category": "Bebidas Frías", "price": 7.0, "description": "Hibiscus agua fresca" },
-{ "id": "horchata", "name": "Horchata", "category": "Bebidas Frías", "price": 7.0, "description": "A sweet and milky refreshing beverage" }
-    
-    
   ]
-}
+ 
+const menuItems = [
+  {
+    id: "enguayabado",
+    name: "Enguayabado (Signature)",
+    category: "Especialidades",
+    description: "Tu plato estrella.",
+    price: 18,
+    image: "assets/img/enguayabado.webp"
+  },
+  {
+    id: "mini-tacos",
+    name: "Mini Tacos (Orden)",
+    category: "Tacos",
+    description: "Elige proteína.",
+    price: 14,
+    image: "assets/img/mini-tacos.webp"
+  },
+  {
+    id: "patacon",
+    name: "Patacón",
+    category: "Patacones / Arepas",
+    description: "Crocante con toppings y salsa.",
+    price: 13,
+    image: "assets/img/patacon-sensei-card.webp"
+  },
+  {
+    id: "arepa",
+    name: "Arepa",
+    category: "Patacones / Arepas",
+    description: "Rellena (edita).",
+    price: 12,
+    image: "assets/img/arepa.webp"
+  },
+  {
+    id: "tostada",
+    name: "Tostada",
+    category: "Tostadas",
+    description: "Con proteína y salsas.",
+    price: 10,
+    image: "assets/img/tostada.webp"
+  },
+  {
+    id: "ramen",
+    name: "Ramen (Fusión)",
+    category: "Ramen",
+    description: "Ramen con tu toque.",
+    price: 16,
+    image: "assets/img/ramen.webp"
+  },
+  {
+    id: "mangonada",
+    name: "Mangonada",
+    category: "Bebidas Frías",
+    description: "Mango frozen + chamoy + tajín.",
+    price: 9,
+    image: "assets/img/mangonada.webp"
+  }
+];
