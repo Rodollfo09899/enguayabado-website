@@ -16,7 +16,7 @@
     "Tostadas",
     "Ramen",
     "Bebidas Frías"
-  ]
+  ],
  
 const menuItems = [
   {
