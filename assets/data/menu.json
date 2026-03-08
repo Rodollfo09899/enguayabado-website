@@ -1,4 +1,4 @@
-const config = {
+{
   business: {
     phoneE164: "+14153496404",
     whatsAppPhoneE164: "14153496404",
