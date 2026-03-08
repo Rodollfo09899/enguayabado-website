@@ -460,3 +460,42 @@ text-align:left;
 color:inherit;
 font:inherit;
 }
+
+.addons-box {
+  margin: 12px 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.02);
+}
+
+.addons-summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.addons-summary::-webkit-details-marker {
+  display: none;
+}
+
+.addons-list {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.addon-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.item .label {
+  display: block;
+  margin: 10px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
