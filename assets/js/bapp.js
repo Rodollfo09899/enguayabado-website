@@ -7,16 +7,14 @@
     "yelpUrl": "PASTE_TU_LINK_YELP"
   },
   "categories": [
-    "Especialidades",
-    "Tacos",
-    "Quesabirria",
-    "Salchipapa",
-    "Choripán",
-    "Patacones / Arepas",
-    "Tostadas",
-    "Ramen",
-    "Bebidas Frías",
-    "Add Ons / Extras"
+  "Especialidades",
+  "Tacos",
+  "Patacones / Arepas",
+  "Tostadas",
+  "Ramen",
+  "Bebidas Frías",
+  "Add Ons / Extras",
+],
   ],
   "items": [
     {
