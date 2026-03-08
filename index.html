@@ -83,6 +83,7 @@
 
         <div class="menu-controls">
           <input id="search" class="input" type="search" placeholder="Buscar (tacos, patacón, ramen...)" />
+          
           <select id="category" class="input">
             <option value="all">Todas las categorías</option>
           </select>
@@ -139,7 +140,36 @@
               </select>
 
               <label class="label" for="custAddr">Dirección (si aplica)</label>
-              <input id="custAddr" class="input" placeholder="Ciudad + dirección" />
+              
+             <div class="field">
+
+<label for="deliveryAddress">Delivery Address</label>
+
+<input
+id="deliveryAddress"
+class="input"
+type="text"
+placeholder="Street, City, State, ZIP (ex: 123 Main St, San Bruno, CA 94066)"
+required
+/>
+
+<p class="small muted">
+Delivery distance will be verified after the order is received to confirm the correct delivery fee.
+</p>
+
+<div class="btn-row">
+
+<button type="button" class="btn btn--ghost" onclick="verifyGoogleMaps()">
+Verify Address
+</button>
+
+<button type="button" class="btn btn--ghost" onclick="verifyAppleMaps()">
+Open in Apple Maps
+</button>
+
+</div>
+
+</div>
 
               <label class="label" for="custNotes">Notas</label>
               <textarea id="custNotes" class="input" rows="3" placeholder="Sin cebolla, extra salsa, alergias, etc."></textarea>
@@ -361,6 +391,41 @@
     </div>
   </div>
 </div>
+
+  <script>
+
+function getAddress(){
+const address=document.getElementById("deliveryAddress").value;
+
+if(!address){
+alert("Please enter your full address first");
+return null;
+}
+
+return encodeURIComponent(address);
+}
+
+function verifyGoogleMaps(){
+const address=getAddress();
+if(!address) return;
+
+window.open(
+`https://www.google.com/maps/search/?api=1&query=${address}`,
+"_blank"
+);
+}
+
+function verifyAppleMaps(){
+const address=getAddress();
+if(!address) return;
+
+window.open(
+`https://maps.apple.com/?q=${address}`,
+"_blank"
+);
+}
+
+</script>
   
 </body>
 </html>
