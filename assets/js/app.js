@@ -1,20 +1,17 @@
-function renderMenu(){
-  const grid = $('menuGrid');
-  grid.innerHTML = '';
-
-  const search = ($('search').value || '').toLowerCase().trim();
-  const cat = $('category').value;
-
-  const items = MENU.items.filter(it => {
-    const matchesSearch =
-      !search ||
-      it.name.toLowerCase().includes(search) ||
-      (it.description || '').toLowerCase().includes(search) ||
-      it.category.toLowerCase().includes(search);
-
-    const matchesCat = (cat === 'all') || (it.category === cat);
-    return matchesSearch && matchesCat;
-  });
+card.innerHTML = `
+  <div class="item-body">
+    <h3>${escapeHtml(it.name)}</h3>
+    <div class="item-meta">
+      <span class="pill">${escapeHtml(it.category)}</span>
+      <strong>${money(it.price)}</strong>
+    </div>
+    <p>${escapeHtml(it.description || '')}</p>
+    <div class="item-actions">
+      <button data-add="${it.id}">Agregar</button>
+      <button data-add2="${it.id}">+2</button>
+    </div>
+  </div>
+`;
 
   for (const it of items){
     const card = document.createElement('div');
