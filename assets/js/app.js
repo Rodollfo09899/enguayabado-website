@@ -374,7 +374,8 @@ function getSubtotal() {
 function buildOrderMessage() {
   const name = safeStr(els.custName?.value);
   const phone = safeStr(els.custPhone?.value);
-  const date = safeStr(els.custDate?.value);
+const date = safeStr(els.custDate?.value);
+const time = safeStr(document.getElementById('custTime')?.value);
   const type = safeStr(els.custType?.value);
 
   const addrField = document.getElementById('deliveryAddress');
@@ -404,7 +405,8 @@ function buildOrderMessage() {
     '',
     `Nombre: ${name || 'N/A'}`,
     `Teléfono: ${phone || 'N/A'}`,
-    `Fecha y hora: ${date || 'N/A'}`,
+    `Fecha: ${date || 'N/A'}`,
+`Hora: ${time || 'N/A'}`,
     `Tipo: ${type || 'N/A'}`,
     `Dirección: ${addr || 'N/A'}`,
     `Notas generales: ${notes || 'N/A'}`
