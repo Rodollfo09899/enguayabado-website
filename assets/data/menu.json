@@ -17,7 +17,7 @@
     "Ramen",
     "Bebidas Frías"
   ],
- 
+}
 const menuItems = [
   {
     id: "enguayabado",
