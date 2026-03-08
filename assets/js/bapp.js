@@ -3,7 +3,7 @@
     "phoneE164": "+14153496404",
     "whatsAppPhoneE164": "14153496404",
     "instagramUrl": "https://www.instagram.com/enguayabado_01",
-    "googleReviewUrl": "PASTE_TU_LINK_DE_REVIEW_GOOGLE",
+    "googleReviewUrl": "https://g.page/r/CZG111YKFzJXEAE/review",
     "yelpUrl": "PASTE_TU_LINK_YELP"
   },
   "categories": [
