@@ -15,8 +15,7 @@
     "Patacones / Arepas",
     "Tostadas",
     "Ramen",
-    "Bebidas Frías",
-    "Add Ons / Extras"
+    "Bebidas Frías"
   ],
   "items": [
     {
@@ -24,63 +23,130 @@
       "name": "Enguayabado (Signature)",
       "category": "Especialidades",
       "price": 18,
-      "description": "Tu plato estrella."
+      "description": "Tu plato estrella.",
+      "addOns": [
+        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Extra Camarones", "price": 5 },
+        { "name": "Poached Egg / Fried Egg", "price": 3 },
+        { "name": "Extra Bacon", "price": 3 },
+        { "name": "Aguacate", "price": 3 },
+        { "name": "Maduritos", "price": 5 }
+      ]
     },
     {
       "id": "tacos_mini",
       "name": "Street Tacos (Orden)",
       "category": "Tacos",
       "price": 12,
-      "description": "Elige proteína."
+      "description": "Elige proteína.",
+      "addOns": [
+        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Aguacate", "price": 3 }
+      ]
     },
     {
       "id": "quesabirria",
       "name": "Quesabirria",
       "category": "Quesabirria",
       "price": 15,
-      "description": "Crujiente, cheesy y con consomé."
+      "description": "Crujiente, cheesy y con consomé.",
+      "addOns": [
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Aguacate", "price": 3 },
+        { "name": "Extra Bacon", "price": 3 }
+      ]
     },
     {
       "id": "salchipapa",
       "name": "Salchipapa",
       "category": "Salchipapa",
       "price": 14,
-      "description": "Papas, salchicha y toppings."
+      "description": "Papas, salchicha y toppings.",
+      "addOns": [
+        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Extra Camarones", "price": 5 },
+        { "name": "Poached Egg / Fried Egg", "price": 3 },
+        { "name": "Extra Bacon", "price": 3 },
+        { "name": "Aguacate", "price": 3 }
+      ]
     },
     {
       "id": "choripan",
       "name": "Choripán",
       "category": "Choripán",
       "price": 12,
-      "description": "Pan tostado con chorizo y salsas."
+      "description": "Pan tostado con chorizo y salsas.",
+      "addOns": [
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Extra Bacon", "price": 3 },
+        { "name": "Aguacate", "price": 3 }
+      ]
     },
     {
       "id": "patacon_sensei",
       "name": "Patacón Sensei",
       "category": "Patacones / Arepas",
       "price": 16,
-      "description": "Patacón crocante con proteína y salsas de la casa."
+      "description": "Patacón crocante con proteína y salsas de la casa.",
+      "addOns": [
+        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Extra Camarones", "price": 5 },
+        { "name": "Poached Egg / Fried Egg", "price": 3 },
+        { "name": "Extra Bacon", "price": 3 },
+        { "name": "Aguacate", "price": 3 },
+        { "name": "Maduritos", "price": 5 }
+      ]
     },
     {
       "id": "arepa_rellena",
       "name": "Arepa Rellena",
       "category": "Patacones / Arepas",
       "price": 13,
-      "description": "Arepa con relleno y toppings."
+      "description": "Arepa con relleno y toppings.",
+      "addOns": [
+        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Extra Camarones", "price": 5 },
+        { "name": "Poached Egg / Fried Egg", "price": 3 },
+        { "name": "Extra Bacon", "price": 3 },
+        { "name": "Aguacate", "price": 3 },
+        { "name": "Maduritos", "price": 5 }
+      ]
     },
     {
       "id": "birria_tostada",
       "name": "Birria Tostada",
       "category": "Tostadas",
       "price": 14,
-      "description": "Tostada con birria, queso y salsas."
+      "description": "Tostada con birria, queso y salsas.",
+      "addOns": [
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Asada", "price": 5 },
+        { "name": "Extra Camarones", "price": 5 },
+        { "name": "Aguacate", "price": 3 }
+      ]
     },
     {
       "id": "ramen_birria",
       "name": "Ramen Birria",
       "category": "Ramen",
       "price": 16,
-      "description": "Ramen fusión con birria y toppings."
+      "description": "Ramen fusión con birria y toppings.",
+      "addOns": [
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Poached Egg / Fried Egg", "price": 3 },
+        { "name": "Extra Bacon", "price": 3 },
+        { "name": "Aguacate", "price": 3 }
+      ]
     },
     {
       "id": "horchata",
@@ -88,62 +154,6 @@
       "category": "Bebidas Frías",
       "price": 5,
       "description": "Bebida fresca."
-    },
-    {
-      "id": "extra_pollo",
-      "name": "Extra Pollo",
-      "category": "Add Ons / Extras",
-      "price": 3,
-      "description": "Agrega pollo."
-    },
-    {
-      "id": "extra_birria",
-      "name": "Extra Birria",
-      "category": "Add Ons / Extras",
-      "price": 5,
-      "description": "Agrega birria."
-    },
-    {
-      "id": "extra_asada",
-      "name": "Extra Asada",
-      "category": "Add Ons / Extras",
-      "price": 5,
-      "description": "Agrega asada."
-    },
-    {
-      "id": "extra_camarones",
-      "name": "Extra Camarones",
-      "category": "Add Ons / Extras",
-      "price": 5,
-      "description": "Agrega camarones."
-    },
-    {
-      "id": "extra_huevo",
-      "name": "Poached Egg / Fried Egg",
-      "category": "Add Ons / Extras",
-      "price": 3,
-      "description": "Huevo extra."
-    },
-    {
-      "id": "extra_bacon",
-      "name": "Extra Bacon",
-      "category": "Add Ons / Extras",
-      "price": 3,
-      "description": "Tocino extra."
-    },
-    {
-      "id": "extra_aguacate",
-      "name": "Aguacate",
-      "category": "Add Ons / Extras",
-      "price": 3,
-      "description": "Aguacate extra."
-    },
-    {
-      "id": "extra_maduritos",
-      "name": "Maduritos",
-      "category": "Add Ons / Extras",
-      "price": 5,
-      "description": "Porción de maduritos."
     }
   ]
 }
