@@ -123,11 +123,7 @@ function hydrateBusinessLinks() {
 
 function setLink(el, href) {
   if (!el) return;
-  if (href && !href.startsWith('PASTE_')) {
-    el.href = href;
-  } else {
-    el.href = '#';
-  }
+  el.href = href && !href.startsWith('PASTE_') ? href : '#';
 }
 
 function renderCategories() {
@@ -186,6 +182,28 @@ function renderMenu(items) {
   }
 
   for (const it of items) {
+    const hasAddOns = Array.isArray(it.addOns) && it.addOns.length > 0;
+
+    const addOnsHtml = hasAddOns
+      ? `
+        <details class="addons-box">
+          <summary class="addons-summary">Add-ons / extras</summary>
+          <div class="addons-list">
+            ${it.addOns.map((addOn, index) => `
+              <label class="addon-option">
+                <input
+                  type="checkbox"
+                  data-addon-item="${escapeHtml(it.id)}"
+                  data-addon-index="${index}"
+                />
+                <span>${escapeHtml(addOn.name)} (+${money(addOn.price)})</span>
+              </label>
+            `).join('')}
+          </div>
+        </details>
+      `
+      : '';
+
     const card = document.createElement('div');
     card.className = 'item';
 
@@ -200,58 +218,103 @@ function renderMenu(items) {
 
         <p>${escapeHtml(it.description || '')}</p>
 
+        ${addOnsHtml}
+
+        <label class="label" for="qty-${escapeHtml(it.id)}">Cantidad</label>
+        <input
+          id="qty-${escapeHtml(it.id)}"
+          class="input"
+          type="number"
+          min="1"
+          value="1"
+        />
+
+        <label class="label" for="note-${escapeHtml(it.id)}">Notas</label>
+        <textarea
+          id="note-${escapeHtml(it.id)}"
+          class="input"
+          rows="2"
+          placeholder="Ej: sin cebolla, extra salsa, bien tostado..."
+        ></textarea>
+
         <div class="item-actions">
-          <button class="btn btn--primary" data-add="${escapeHtml(it.id)}">Agregar</button>
-          <button class="btn btn--ghost" data-add2="${escapeHtml(it.id)}">+2</button>
+          <button class="btn btn--primary" data-add="${escapeHtml(it.id)}">
+            Agregar al pedido
+          </button>
         </div>
       </div>
     `;
 
     const addBtn = card.querySelector('[data-add]');
-    const add2Btn = card.querySelector('[data-add2]');
-
-    if (addBtn) addBtn.addEventListener('click', () => addToCart(it.id, 1));
-    if (add2Btn) add2Btn.addEventListener('click', () => addToCart(it.id, 2));
+    if (addBtn) {
+      addBtn.addEventListener('click', () => addConfiguredItemToCart(it.id));
+    }
 
     els.menuGrid.appendChild(card);
   }
 }
 
-function addToCart(itemId, qty = 1) {
+function addConfiguredItemToCart(itemId) {
   const item = state.items.find((x) => x.id === itemId);
   if (!item) return;
 
-  const existing = state.cart.find((x) => x.id === itemId);
+  const qtyInput = document.getElementById(`qty-${itemId}`);
+  const noteInput = document.getElementById(`note-${itemId}`);
 
-  if (existing) {
-    existing.qty += qty;
-  } else {
-    state.cart.push({
-      id: item.id,
-      name: item.name,
-      price: Number(item.price) || 0,
-      qty
+  const qty = Math.max(1, parseInt(qtyInput?.value, 10) || 1);
+  const note = safeStr(noteInput?.value);
+
+  const selectedAddOns = Array.from(
+    document.querySelectorAll(`input[data-addon-item="${itemId}"]:checked`)
+  ).map((input) => {
+    const idx = Number(input.dataset.addonIndex);
+    return item.addOns?.[idx];
+  }).filter(Boolean);
+
+  const addOnsTotal = selectedAddOns.reduce((sum, addOn) => {
+    return sum + Number(addOn.price || 0);
+  }, 0);
+
+  const unitPrice = Number(item.price || 0) + addOnsTotal;
+
+  state.cart.push({
+    cartId: `${item.id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: item.id,
+    name: item.name,
+    basePrice: Number(item.price || 0),
+    unitPrice,
+    qty,
+    note,
+    addOns: selectedAddOns
+  });
+
+  if (qtyInput) qtyInput.value = '1';
+  if (noteInput) noteInput.value = '';
+
+  document
+    .querySelectorAll(`input[data-addon-item="${itemId}"]:checked`)
+    .forEach((input) => {
+      input.checked = false;
     });
-  }
 
   renderCart();
 }
 
-function changeQty(itemId, delta) {
-  const row = state.cart.find((x) => x.id === itemId);
+function changeQty(cartId, delta) {
+  const row = state.cart.find((x) => x.cartId === cartId);
   if (!row) return;
 
   row.qty += delta;
 
   if (row.qty <= 0) {
-    state.cart = state.cart.filter((x) => x.id !== itemId);
+    state.cart = state.cart.filter((x) => x.cartId !== cartId);
   }
 
   renderCart();
 }
 
-function removeFromCart(itemId) {
-  state.cart = state.cart.filter((x) => x.id !== itemId);
+function removeFromCart(cartId) {
+  state.cart = state.cart.filter((x) => x.cartId !== cartId);
   renderCart();
 }
 
@@ -272,26 +335,31 @@ function renderCart() {
     const line = document.createElement('div');
     line.className = 'cart__item';
 
-    const lineTotal = row.price * row.qty;
+    const lineTotal = row.unitPrice * row.qty;
+    const addOnsText = Array.isArray(row.addOns) && row.addOns.length
+      ? row.addOns.map((a) => `${a.name} (+${money(a.price)})`).join(', ')
+      : '';
 
     line.innerHTML = `
       <div class="cart__info">
         <div><strong>${escapeHtml(row.name)}</strong></div>
-        <div class="muted small">${money(row.price)} c/u</div>
+        <div class="muted small">${money(row.unitPrice)} c/u</div>
+        ${addOnsText ? `<div class="muted small">Extras: ${escapeHtml(addOnsText)}</div>` : ''}
+        ${row.note ? `<div class="muted small">Nota: ${escapeHtml(row.note)}</div>` : ''}
       </div>
 
       <div class="cart__controls">
-        <button class="btn btn--ghost btn--mini" data-minus="${escapeHtml(row.id)}">-</button>
+        <button class="btn btn--ghost btn--mini" data-minus="${escapeHtml(row.cartId)}">-</button>
         <span class="cart__qty">${row.qty}</span>
-        <button class="btn btn--ghost btn--mini" data-plus="${escapeHtml(row.id)}">+</button>
+        <button class="btn btn--ghost btn--mini" data-plus="${escapeHtml(row.cartId)}">+</button>
         <strong>${money(lineTotal)}</strong>
-        <button class="btn btn--ghost btn--mini" data-remove="${escapeHtml(row.id)}">x</button>
+        <button class="btn btn--ghost btn--mini" data-remove="${escapeHtml(row.cartId)}">x</button>
       </div>
     `;
 
-    line.querySelector('[data-minus]')?.addEventListener('click', () => changeQty(row.id, -1));
-    line.querySelector('[data-plus]')?.addEventListener('click', () => changeQty(row.id, 1));
-    line.querySelector('[data-remove]')?.addEventListener('click', () => removeFromCart(row.id));
+    line.querySelector('[data-minus]')?.addEventListener('click', () => changeQty(row.cartId, -1));
+    line.querySelector('[data-plus]')?.addEventListener('click', () => changeQty(row.cartId, 1));
+    line.querySelector('[data-remove]')?.addEventListener('click', () => removeFromCart(row.cartId));
 
     els.cartList.appendChild(line);
   }
@@ -300,7 +368,7 @@ function renderCart() {
 }
 
 function getSubtotal() {
-  return state.cart.reduce((sum, row) => sum + row.price * row.qty, 0);
+  return state.cart.reduce((sum, row) => sum + row.unitPrice * row.qty, 0);
 }
 
 function buildOrderMessage() {
@@ -308,11 +376,22 @@ function buildOrderMessage() {
   const phone = safeStr(els.custPhone?.value);
   const date = safeStr(els.custDate?.value);
   const type = safeStr(els.custType?.value);
-  const addr = safeStr(els.custAddr?.value);
+
+  const addrField = document.getElementById('deliveryAddress');
+  const addr = safeStr(addrField?.value || els.custAddr?.value);
+
   const notes = safeStr(els.custNotes?.value);
 
   const orderLines = state.cart.length
-    ? state.cart.map((row) => `- ${row.qty}x ${row.name} (${money(row.price * row.qty)})`).join('\n')
+    ? state.cart.map((row) => {
+        const extras = row.addOns?.length
+          ? ` | Extras: ${row.addOns.map((a) => `${a.name} (+${money(a.price)})`).join(', ')}`
+          : '';
+
+        const note = row.note ? ` | Nota: ${row.note}` : '';
+
+        return `- ${row.qty}x ${row.name}${extras}${note} (${money(row.unitPrice * row.qty)})`;
+      }).join('\n')
     : '- Sin items todavía';
 
   return [
@@ -328,7 +407,7 @@ function buildOrderMessage() {
     `Fecha y hora: ${date || 'N/A'}`,
     `Tipo: ${type || 'N/A'}`,
     `Dirección: ${addr || 'N/A'}`,
-    `Notas: ${notes || 'N/A'}`
+    `Notas generales: ${notes || 'N/A'}`
   ].join('\n');
 }
 
@@ -389,6 +468,7 @@ function escapeHtml(str) {
     }[m];
   });
 }
+
 /* ===== MAP ADDRESS VERIFY ===== */
 
 function getAddressValue() {
@@ -427,6 +507,7 @@ function verifyAppleMaps() {
     '_blank'
   );
 }
+
 /* ===== DISTANCE CHECK ===== */
 
 function checkDistance() {
@@ -438,7 +519,7 @@ function checkDistance() {
     return;
   }
 
-  const origin = encodeURIComponent('San Bruno CA'); 
+  const origin = encodeURIComponent('San Bruno CA');
   const destination = encodeURIComponent(address);
 
   window.open(
