@@ -427,3 +427,22 @@ function verifyAppleMaps() {
     '_blank'
   );
 }
+/* ===== DISTANCE CHECK ===== */
+
+function checkDistance() {
+  const addressInput = document.getElementById('deliveryAddress');
+  const address = addressInput ? addressInput.value.trim() : '';
+
+  if (!address) {
+    alert('Escribe tu dirección completa primero.');
+    return;
+  }
+
+  const origin = encodeURIComponent('San Bruno CA'); 
+  const destination = encodeURIComponent(address);
+
+  window.open(
+    `https://www.google.com/maps/dir/${origin}/${destination}`,
+    '_blank'
+  );
+}
