@@ -122,26 +122,26 @@
             <div class="panel">
               <h3>Datos</h3>
 
-              <label class="label">Nombre</label>
+              <label class="label" for="custName">Nombre</label>
               <input id="custName" class="input" placeholder="Tu nombre" />
 
-              <label class="label">Teléfono</label>
+              <label class="label" for="custPhone">Teléfono</label>
               <input id="custPhone" class="input" placeholder="(415) 000-0000" inputmode="tel" />
 
-              <label class="label">Fecha y hora</label>
+              <label class="label" for="custDate">Fecha y hora</label>
               <input id="custDate" class="input" placeholder="Ej: Sáb 6pm" />
 
-              <label class="label">Tipo</label>
+              <label class="label" for="custType">Tipo</label>
               <select id="custType" class="input">
                 <option value="pickup">Pickup</option>
                 <option value="delivery">Delivery</option>
                 <option value="catering">Catering / Evento</option>
               </select>
 
-              <label class="label">Dirección (si aplica)</label>
+              <label class="label" for="custAddr">Dirección (si aplica)</label>
               <input id="custAddr" class="input" placeholder="Ciudad + dirección" />
 
-              <label class="label">Notas</label>
+              <label class="label" for="custNotes">Notas</label>
               <textarea id="custNotes" class="input" rows="3" placeholder="Sin cebolla, extra salsa, alergias, etc."></textarea>
 
               <div class="btn-row">
@@ -158,84 +158,83 @@
       </div>
     </section>
 
-
     <section class="section" id="photos">
-  <div class="wrap">
-    <div class="section__head">
-      <h2>Fotos reales</h2>
-      <p>Una muestra rápida. Para ver más, entra a la galería.</p>
-    </div>
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Fotos reales</h2>
+          <p>Una muestra rápida. Para ver más, entra a la galería.</p>
+        </div>
 
-    <div class="photos-grid-compact">
-      <a class="photo-card photo-card-lg" href="fotos.html" aria-label="Ver galería completa">
-        <img
-          src="images/patacon-sensei-enguayabado-small.webp"
-          loading="lazy"
-          width="800"
-          height="500"
-          alt="Patacón Sensei de Enguayabado"
-        />
-        <span class="photo-label">Patacón Sensei</span>
-      </a>
+        <div class="photos-grid-compact">
+          <a class="photo-card photo-card-lg" href="fotos.html" aria-label="Ver galería completa">
+            <img
+              src="images/patacon-sensei-enguayabado-small.webp"
+              loading="lazy"
+              width="800"
+              height="500"
+              alt="Patacón Sensei de Enguayabado"
+            />
+            <span class="photo-label">Patacón Sensei</span>
+          </a>
 
-      <a class="photo-card" href="fotos.html" aria-label="Ver galería completa">
-        <img
-          src="images/tostada-enguayabado-small.webp"
-          loading="lazy"
-          width="700"
-          height="394"
-          alt=""
-        />
-        <span class="photo-label">Tostadas</span>
-      </a>
+          <a class="photo-card" href="fotos.html" aria-label="Ver galería completa">
+            <img
+              src="images/tostada-enguayabado-small.webp"
+              loading="lazy"
+              width="700"
+              height="394"
+              alt="Tostadas de Enguayabado"
+            />
+            <span class="photo-label">Tostadas</span>
+          </a>
 
-      <a class="photo-card" href="fotos.html" aria-label="Ver galería completa">
-        <img
-          src="images/chorriperro-enguayabado-small.webp"
-          loading="lazy"
-          width="700"
-          height="394"
-          alt="Chorriperro"
-        />
-        <span class="photo-label">Más sabores</span>
-      </a>
-    </div>
-  </div>
-</section>
-    
-<section class="section section--alt" id="reviews">
-  <div class="wrap">
-    <div class="section__head">
-      <h2>Reviews</h2>
-      <p>Links ligeros a Google/Yelp.</p>
-    </div>
-
-    <div class="reviews">
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>“Sabor brutal y presentación VIP.”</p>
-        <div class="muted small">— Cliente</div>
+          <a class="photo-card" href="fotos.html" aria-label="Ver galería completa">
+            <img
+              src="images/chorriperro-enguayabado-small.webp"
+              loading="lazy"
+              width="700"
+              height="394"
+              alt="Chorriperro de Enguayabado"
+            />
+            <span class="photo-label">Más sabores</span>
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>“Todo caliente, organizado y profesional.”</p>
-        <div class="muted small">— Cliente</div>
+    <section class="section section--alt" id="reviews">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Reviews</h2>
+          <p>Links ligeros a Google/Yelp.</p>
+        </div>
+
+        <div class="reviews">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Sabor brutal y presentación VIP.”</p>
+            <div class="muted small">— Cliente</div>
+          </div>
+
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Todo caliente, organizado y profesional.”</p>
+            <div class="muted small">— Cliente</div>
+          </div>
+
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Las salsas están en otro nivel.”</p>
+            <div class="muted small">— Cliente</div>
+          </div>
+        </div>
+
+        <div class="review-links">
+          <a class="btn btn--primary" id="googleReviewLink" href="#" target="_blank" rel="noreferrer">Dejar review en Google</a>
+          <a class="btn btn--ghost" id="yelpLink" href="#" target="_blank" rel="noreferrer">Ver Yelp</a>
+        </div>
       </div>
-
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>“Las salsas están en otro nivel.”</p>
-        <div class="muted small">— Cliente</div>
-      </div>
-    </div>
-
-    <div class="review-links">
-      <a class="btn btn--primary" id="googleReviewLink" href="#" target="_blank" rel="noreferrer">Dejar review en Google</a>
-      <a class="btn btn--ghost" id="yelpLink" href="#" target="_blank" rel="noreferrer">Ver Yelp</a>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="section" id="contact">
       <div class="wrap">
