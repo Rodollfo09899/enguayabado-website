@@ -317,13 +317,18 @@ data-img="images/salchipapa-enguayabado-small.webp"
       ✕
     </button>
 
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__backdrop"></div>
+
+  <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Cerrar">✕</button>
+
     <div class="lightbox__content">
       <div class="lightbox__media">
-        <img id="lightboxImage" src="" alt="" />
+        <img id="lightboxImage" src="" alt="">
       </div>
 
       <div class="lightbox__info">
-        <p class="lightbox__eyebrow">Menú</p>
         <h3 id="lightboxTitle">Plato</h3>
         <div class="lightbox__price" id="lightboxPrice">$0</div>
         <p class="lightbox__desc" id="lightboxDesc"></p>
@@ -340,35 +345,15 @@ data-img="images/salchipapa-enguayabado-small.webp"
           </ul>
         </div>
 
-        <div class="lightbox__sauces">
-          <h4>House sauces</h4>
-          <p>Garlic Aioli • Cilantro Cream • Sweet Corn • Pineapple • Pink Sauce</p>
-        </div>
-
         <div class="lightbox__actions">
-          <a
-            id="lightboxOrderBtn"
-            class="btn btn--gold"
-            href="#order"
-          >
-            Ordenar
-          </a>
-
-          <a
-            id="lightboxWhatsBtn"
-            class="btn btn--ghost"
-            href="#"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
+          <a id="lightboxWhatsBtn" class="btn btn--primary" href="#" target="_blank" rel="noopener">
+            Ordenar por WhatsApp
           </a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
   <script>
 
 function getAddress(){
