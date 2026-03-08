@@ -19,7 +19,7 @@ const els = {
   custPhone: document.getElementById('custPhone'),
   custDate: document.getElementById('custDate'),
   custType: document.getElementById('custType'),
-  custAddr: document.getElementById('custAddr'),
+  custAddr: document.getElementById('deliveryAddress'),
   custNotes: document.getElementById('custNotes'),
 
   sendSms: document.getElementById('sendSms'),
