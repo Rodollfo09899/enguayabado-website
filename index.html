@@ -355,38 +355,61 @@ data-img="images/salchipapa-enguayabado-small.webp"
   </div>
 </div>
   <script>
+const photoTriggers = document.querySelectorAll('.photo-trigger');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxPrice = document.getElementById('lightboxPrice');
+const lightboxDesc = document.getElementById('lightboxDesc');
+const lightboxClose = document.getElementById('lightboxClose');
+const lightboxWhatsBtn = document.getElementById('lightboxWhatsBtn');
 
-function getAddress(){
-const address=document.getElementById("deliveryAddress").value;
+const businessPhone = '14153496404';
 
-if(!address){
-alert("Please enter your full address first");
-return null;
+function openLightbox(data){
+  const title = data.title || '';
+  const price = data.price || '';
+  const desc = data.desc || '';
+  const img = data.img || '';
+
+  lightboxImage.src = img;
+  lightboxImage.alt = title;
+  lightboxTitle.textContent = title;
+  lightboxPrice.textContent = price;
+  lightboxDesc.textContent = desc;
+
+  const text = encodeURIComponent(`Hola, quiero ordenar ${title}`);
+  lightboxWhatsBtn.href = `https://wa.me/${businessPhone}?text=${text}`;
+
+  lightbox.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
 }
 
-return encodeURIComponent(address);
+function closeLightbox(){
+  lightbox.classList.remove('is-open');
+  lightboxImage.src = '';
+  document.body.style.overflow = '';
 }
 
-function verifyGoogleMaps(){
-const address=getAddress();
-if(!address) return;
+photoTriggers.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    openLightbox(btn.dataset);
+  });
+});
 
-window.open(
-`https://www.google.com/maps/search/?api=1&query=${address}`,
-"_blank"
-);
-}
+lightboxClose.addEventListener('click', closeLightbox);
 
-function verifyAppleMaps(){
-const address=getAddress();
-if(!address) return;
+lightbox.addEventListener('click', e=>{
+  if(e.target.classList.contains('lightbox__backdrop')){
+    closeLightbox();
+  }
+});
 
-window.open(
-`https://maps.apple.com/?q=${address}`,
-"_blank"
-);
-}
-
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape'){
+    closeLightbox();
+  }
+});
 </script>
   
 </body>
