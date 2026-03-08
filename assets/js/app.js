@@ -389,3 +389,41 @@ function escapeHtml(str) {
     }[m];
   });
 }
+/* ===== MAP ADDRESS VERIFY ===== */
+
+function getAddressValue() {
+  const addressInput = document.getElementById('deliveryAddress');
+  return addressInput ? addressInput.value.trim() : '';
+}
+
+function verifyGoogleMaps() {
+  const address = getAddressValue();
+
+  if (!address) {
+    alert('Escribe tu dirección completa primero.');
+    return;
+  }
+
+  const encoded = encodeURIComponent(address);
+
+  window.open(
+    `https://www.google.com/maps/search/?api=1&query=${encoded}`,
+    '_blank'
+  );
+}
+
+function verifyAppleMaps() {
+  const address = getAddressValue();
+
+  if (!address) {
+    alert('Escribe tu dirección completa primero.');
+    return;
+  }
+
+  const encoded = encodeURIComponent(address);
+
+  window.open(
+    `https://maps.apple.com/?q=${encoded}`,
+    '_blank'
+  );
+}
