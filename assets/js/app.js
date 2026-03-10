@@ -628,3 +628,47 @@ function checkDistance() {
     '_blank'
   );
 }
+/* ===== PHOTO GALLERY ===== */
+
+const galleryImages = [
+  "images/gallery/patacon1.webp",
+  "images/gallery/patacon2.webp",
+  "images/gallery/tacos1.webp",
+  "images/gallery/tacos2.webp",
+  "images/gallery/ramen1.webp",
+  "images/gallery/tostadas1.webp"
+];
+
+const galleryModal = document.getElementById("galleryModal");
+const galleryGrid = document.getElementById("galleryGrid");
+const openGalleryBtn = document.getElementById("openGallery");
+const closeGalleryBtn = document.getElementById("closeGallery");
+
+if (openGalleryBtn) {
+  openGalleryBtn.addEventListener("click", () => {
+    galleryGrid.innerHTML = "";
+
+    galleryImages.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.loading = "lazy";
+      galleryGrid.appendChild(img);
+    });
+
+    galleryModal.classList.add("active");
+  });
+}
+
+if (closeGalleryBtn) {
+  closeGalleryBtn.addEventListener("click", () => {
+    galleryModal.classList.remove("active");
+  });
+}
+
+if (galleryModal) {
+  galleryModal.addEventListener("click", (e) => {
+    if (e.target === galleryModal) {
+      galleryModal.classList.remove("active");
+    }
+  });
+}
