@@ -47,6 +47,7 @@ async function init() {
   applyFilters();
   renderCart();
   setYear();
+  setMinDate();
 }
 
 function wireStaticUi() {
@@ -182,12 +183,44 @@ function renderMenu(items) {
   }
 
   for (const it of items) {
+    const hasChoices = Array.isArray(it.choices) && it.choices.length > 0;
     const hasAddOns = Array.isArray(it.addOns) && it.addOns.length > 0;
+
+    const choicesHtml = hasChoices
+      ? it.choices.map((choiceGroup, groupIndex) => {
+          const groupName = `choice-${it.id}-${groupIndex}`;
+          const requiredMark = choiceGroup.required ? ' *' : '';
+
+          return `
+            <div class="choice-box">
+              <div class="label">${escapeHtml(choiceGroup.name || 'Choose an option')}${requiredMark}</div>
+              <div class="choices-list">
+                ${(choiceGroup.options || []).map((opt, optIndex) => `
+                  <label class="addon-option">
+                    <input
+                      type="radio"
+                      name="${escapeHtml(groupName)}"
+                      data-choice-item="${escapeHtml(it.id)}"
+                      data-choice-group="${groupIndex}"
+                      data-choice-index="${optIndex}"
+                      ${choiceGroup.required && optIndex === 0 ? 'checked' : ''}
+                    />
+                    <span>
+                      ${escapeHtml(opt.name)}
+                      ${Number(opt.price || 0) > 0 ? ` (+${money(opt.price)})` : ''}
+                    </span>
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')
+      : '';
 
     const addOnsHtml = hasAddOns
       ? `
         <details class="addons-box">
-          <summary class="addons-summary">Add-ons / extras</summary>
+          <summary class="addons-summary">Make it loaded</summary>
           <div class="addons-list">
             ${it.addOns.map((addOn, index) => `
               <label class="addon-option">
@@ -218,6 +251,7 @@ function renderMenu(items) {
 
         <p>${escapeHtml(it.description || '')}</p>
 
+        ${choicesHtml}
         ${addOnsHtml}
 
         <label class="label" for="qty-${escapeHtml(it.id)}">Cantidad</label>
@@ -239,7 +273,7 @@ function renderMenu(items) {
 
         <div class="item-actions">
           <button class="btn btn--primary" data-add="${escapeHtml(it.id)}">
-            Agregar al pedido
+            Add to order
           </button>
         </div>
       </div>
@@ -264,6 +298,36 @@ function addConfiguredItemToCart(itemId) {
   const qty = Math.max(1, parseInt(qtyInput?.value, 10) || 1);
   const note = safeStr(noteInput?.value);
 
+  const selectedChoices = [];
+  const choiceGroups = Array.isArray(item.choices) ? item.choices : [];
+
+  for (let groupIndex = 0; groupIndex < choiceGroups.length; groupIndex++) {
+    const group = choiceGroups[groupIndex];
+
+    const selectedInput = document.querySelector(
+      `input[data-choice-item="${itemId}"][data-choice-group="${groupIndex}"]:checked`
+    );
+
+    if (!selectedInput) {
+      if (group.required) {
+        alert(`Selecciona una opción para: ${group.name}`);
+        return;
+      }
+      continue;
+    }
+
+    const optIndex = Number(selectedInput.dataset.choiceIndex);
+    const selectedOption = group.options?.[optIndex];
+
+    if (selectedOption) {
+      selectedChoices.push({
+        groupName: group.name,
+        name: selectedOption.name,
+        price: Number(selectedOption.price || 0)
+      });
+    }
+  }
+
   const selectedAddOns = Array.from(
     document.querySelectorAll(`input[data-addon-item="${itemId}"]:checked`)
   ).map((input) => {
@@ -271,11 +335,15 @@ function addConfiguredItemToCart(itemId) {
     return item.addOns?.[idx];
   }).filter(Boolean);
 
+  const choicesTotal = selectedChoices.reduce((sum, choice) => {
+    return sum + Number(choice.price || 0);
+  }, 0);
+
   const addOnsTotal = selectedAddOns.reduce((sum, addOn) => {
     return sum + Number(addOn.price || 0);
   }, 0);
 
-  const unitPrice = Number(item.price || 0) + addOnsTotal;
+  const unitPrice = Number(item.price || 0) + choicesTotal + addOnsTotal;
 
   state.cart.push({
     cartId: `${item.id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -285,6 +353,7 @@ function addConfiguredItemToCart(itemId) {
     unitPrice,
     qty,
     note,
+    choices: selectedChoices,
     addOns: selectedAddOns
   });
 
@@ -296,6 +365,15 @@ function addConfiguredItemToCart(itemId) {
     .forEach((input) => {
       input.checked = false;
     });
+
+  const radioInputs = document.querySelectorAll(`input[data-choice-item="${itemId}"]`);
+  radioInputs.forEach((input) => {
+    const groupIndex = Number(input.dataset.choiceGroup);
+    const group = item.choices?.[groupIndex];
+    const optIndex = Number(input.dataset.choiceIndex);
+
+    input.checked = !!(group?.required && optIndex === 0);
+  });
 
   renderCart();
 }
@@ -336,6 +414,11 @@ function renderCart() {
     line.className = 'cart__item';
 
     const lineTotal = row.unitPrice * row.qty;
+
+    const choicesText = Array.isArray(row.choices) && row.choices.length
+      ? row.choices.map((c) => `${c.groupName}: ${c.name}${c.price > 0 ? ` (+${money(c.price)})` : ''}`).join(', ')
+      : '';
+
     const addOnsText = Array.isArray(row.addOns) && row.addOns.length
       ? row.addOns.map((a) => `${a.name} (+${money(a.price)})`).join(', ')
       : '';
@@ -344,6 +427,7 @@ function renderCart() {
       <div class="cart__info">
         <div><strong>${escapeHtml(row.name)}</strong></div>
         <div class="muted small">${money(row.unitPrice)} c/u</div>
+        ${choicesText ? `<div class="muted small">Selección: ${escapeHtml(choicesText)}</div>` : ''}
         ${addOnsText ? `<div class="muted small">Extras: ${escapeHtml(addOnsText)}</div>` : ''}
         ${row.note ? `<div class="muted small">Nota: ${escapeHtml(row.note)}</div>` : ''}
       </div>
@@ -374,8 +458,8 @@ function getSubtotal() {
 function buildOrderMessage() {
   const name = safeStr(els.custName?.value);
   const phone = safeStr(els.custPhone?.value);
-const date = safeStr(els.custDate?.value);
-const time = safeStr(document.getElementById('custTime')?.value);
+  const date = safeStr(els.custDate?.value);
+  const time = safeStr(document.getElementById('custTime')?.value);
   const type = safeStr(els.custType?.value);
 
   const addrField = document.getElementById('deliveryAddress');
@@ -385,13 +469,17 @@ const time = safeStr(document.getElementById('custTime')?.value);
 
   const orderLines = state.cart.length
     ? state.cart.map((row) => {
+        const choices = row.choices?.length
+          ? ` | Selección: ${row.choices.map((c) => `${c.groupName}: ${c.name}${c.price > 0 ? ` (+${money(c.price)})` : ''}`).join(', ')}`
+          : '';
+
         const extras = row.addOns?.length
           ? ` | Extras: ${row.addOns.map((a) => `${a.name} (+${money(a.price)})`).join(', ')}`
           : '';
 
         const note = row.note ? ` | Nota: ${row.note}` : '';
 
-        return `- ${row.qty}x ${row.name}${extras}${note} (${money(row.unitPrice * row.qty)})`;
+        return `- ${row.qty}x ${row.name}${choices}${extras}${note} (${money(row.unitPrice * row.qty)})`;
       }).join('\n')
     : '- Sin items todavía';
 
@@ -406,7 +494,7 @@ const time = safeStr(document.getElementById('custTime')?.value);
     `Nombre: ${name || 'N/A'}`,
     `Teléfono: ${phone || 'N/A'}`,
     `Fecha: ${date || 'N/A'}`,
-`Hora: ${time || 'N/A'}`,
+    `Hora: ${time || 'N/A'}`,
     `Tipo: ${type || 'N/A'}`,
     `Dirección: ${addr || 'N/A'}`,
     `Notas generales: ${notes || 'N/A'}`
@@ -449,6 +537,17 @@ function setYear() {
   if (els.year) {
     els.year.textContent = String(new Date().getFullYear());
   }
+}
+
+function setMinDate() {
+  const dateInput = document.getElementById('custDate');
+  if (!dateInput) return;
+
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  dateInput.min = `${yyyy}-${mm}-${dd}`;
 }
 
 function safeStr(value) {
@@ -529,10 +628,3 @@ function checkDistance() {
     '_blank'
   );
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const dateInput = document.getElementById("custDate");
-  if (dateInput) {
-    const today = new Date().toISOString().split("T")[0];
-    dateInput.min = today;
-  }
-});
