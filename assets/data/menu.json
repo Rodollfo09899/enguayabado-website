@@ -162,19 +162,32 @@
         { "name": "Queso Fundido", "price": 2 },
         { "name": "Maduritos", "price": 5 }
       ]
-    },
+    },{
+  "id": "tostadas",
+  "name": "Loaded Tostadas",
+  "category": "Tostadas",
+  "price": 15,
+  "description": "Crunchy tostadas loaded with fresh salad, house sauces, queso and guacamole. Choose your protein.",
+  "choices": [
     {
-      "id": "birria_tostada",
-      "name": "Birria Tostada",
-      "category": "Tostadas",
-      "price": 14,
-      "description": "Tostada con birria, queso y salsas.",
-      "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Guacamole", "price": 2 }
+      "name": "Choose your protein",
+      "required": true,
+      "options": [
+        { "name": "Birria", "price": 0 },
+        { "name": "Asada", "price": 0 },
+        { "name": "Pollo", "price": 0 }
       ]
-    },
+    }
+  ],
+  "addOns": [
+    { "name": "Extra Birria", "price": 5 },
+    { "name": "Extra Asada", "price": 4 },
+    { "name": "Extra Pollo", "price": 4 },
+    { "name": "Extra Guacamole", "price": 2 },
+    { "name": "Extra Queso", "price": 2 },
+    { "name": "Extra Salsa", "price": 1 }
+  ]
+},
     {
       "id": "ramen_birria",
       "name": "Ramen Birria",
