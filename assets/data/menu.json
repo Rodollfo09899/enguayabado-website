@@ -19,20 +19,18 @@
   ],
   "items": [
     {
-      "id": "enguayabado_signature",
-      "name": "Enguayabado (Signature)",
+      "id": "patacon_sensei_signature",
+      "name": "Patacón Sensei (Signature)",
       "category": "Especialidades",
-      "price": 18,
-      "description": "Tu plato estrella.",
+      "price": 22,
+      "description": "Crispy Colombian-style patacón loaded with pico de gallo, queso fundido, house sauces, fresh salad, Colombian chorizo, and guacamole. Choose your protein: birria, asada, or pollo.",
       "addOns": [
-        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Pollo", "price": 4 },
+        { "name": "Extra Asada", "price": 4 },
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Extra Camarones", "price": 5 },
-        { "name": "Poached Egg / Fried Egg", "price": 3 },
-        { "name": "Extra Bacon", "price": 3 },
-        { "name": "Aguacate", "price": 3 },
-        { "name": "Maduritos", "price": 5 }
+        { "name": "Extra Guacamole", "price": 2 },
+        { "name": "Extra Queso Fundido", "price": 2 },
+        { "name": "Extra Pico de Gallo", "price": 1 }
       ]
     },
     {
@@ -40,12 +38,14 @@
       "name": "Street Tacos (Orden)",
       "category": "Tacos",
       "price": 12,
-      "description": "Elige proteína.",
+      "description": "Classic street tacos. Choose your protein at no extra cost: birria, asada, or pollo. Add extras if you want more.",
       "addOns": [
-        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Pollo", "price": 4 },
+        { "name": "Extra Asada", "price": 4 },
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Aguacate", "price": 3 }
+        { "name": "Guacamole", "price": 2 },
+        { "name": "Queso Fundido", "price": 2 },
+        { "name": "Pico de Gallo", "price": 1 }
       ]
     },
     {
@@ -53,11 +53,11 @@
       "name": "Quesabirria",
       "category": "Quesabirria",
       "price": 15,
-      "description": "Crujiente, cheesy y con consomé.",
+      "description": "Crispy, cheesy, and served with rich consommé.",
       "addOns": [
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Aguacate", "price": 3 },
-        { "name": "Extra Bacon", "price": 3 }
+        { "name": "Guacamole", "price": 2 },
+        { "name": "Extra Queso", "price": 2 }
       ]
     },
     {
@@ -65,42 +65,42 @@
       "name": "Salchipapa",
       "category": "Salchipapa",
       "price": 14,
-      "description": "Papas, salchicha y toppings.",
+      "description": "Loaded fries with sausage and house toppings.",
       "addOns": [
-        { "name": "Extra Pollo", "price": 3 },
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Extra Camarones", "price": 5 },
+        { "name": "Extra Pollo", "price": 4 },
+        { "name": "Extra Asada", "price": 4 },
+        { "name": "Extra Birria", "price": 5 },
         { "name": "Poached Egg / Fried Egg", "price": 3 },
         { "name": "Extra Bacon", "price": 3 },
-        { "name": "Aguacate", "price": 3 }
+        { "name": "Guacamole", "price": 2 }
       ]
     },
     {
       "id": "choripan",
       "name": "Choripán",
       "category": "Choripán",
-      "price": 12,
-      "description": "Pan tostado con chorizo y salsas.",
+      "price": 18,
+      "description": "Toasted bread loaded with Colombian chorizo and house flavor. Add extras to make it your way.",
       "addOns": [
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Extra Bacon", "price": 3 },
-        { "name": "Aguacate", "price": 3 }
+        { "name": "Extra Birria", "price": 5 },
+        { "name": "Extra Chorizo", "price": 4 },
+        { "name": "Guacamole", "price": 2 },
+        { "name": "Queso Fundido", "price": 2 },
+        { "name": "Pico de Gallo", "price": 1 }
       ]
     },
     {
       "id": "patacon_sensei",
       "name": "Patacón Sensei",
       "category": "Patacones / Arepas",
-      "price": 16,
-      "description": "Patacón crocante con proteína y salsas de la casa.",
+      "price": 18,
+      "description": "Crispy Colombian-style patacón with your choice of protein and house sauces.",
       "addOns": [
-        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Pollo", "price": 4 },
+        { "name": "Extra Asada", "price": 4 },
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Extra Camarones", "price": 5 },
-        { "name": "Poached Egg / Fried Egg", "price": 3 },
-        { "name": "Extra Bacon", "price": 3 },
-        { "name": "Aguacate", "price": 3 },
+        { "name": "Guacamole", "price": 2 },
+        { "name": "Queso Fundido", "price": 2 },
         { "name": "Maduritos", "price": 5 }
       ]
     },
@@ -109,15 +109,13 @@
       "name": "Arepa Rellena",
       "category": "Patacones / Arepas",
       "price": 13,
-      "description": "Arepa con relleno y toppings.",
+      "description": "Stuffed arepa with your choice of filling and toppings.",
       "addOns": [
-        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Pollo", "price": 4 },
+        { "name": "Extra Asada", "price": 4 },
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Extra Camarones", "price": 5 },
-        { "name": "Poached Egg / Fried Egg", "price": 3 },
-        { "name": "Extra Bacon", "price": 3 },
-        { "name": "Aguacate", "price": 3 },
+        { "name": "Guacamole", "price": 2 },
+        { "name": "Queso Fundido", "price": 2 },
         { "name": "Maduritos", "price": 5 }
       ]
     },
@@ -126,12 +124,11 @@
       "name": "Birria Tostada",
       "category": "Tostadas",
       "price": 14,
-      "description": "Tostada con birria, queso y salsas.",
+      "description": "Crunchy tostada loaded with birria, cheese, and house toppings.",
       "addOns": [
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 5 },
-        { "name": "Extra Camarones", "price": 5 },
-        { "name": "Aguacate", "price": 3 }
+        { "name": "Extra Asada", "price": 4 },
+        { "name": "Guacamole", "price": 2 }
       ]
     },
     {
@@ -139,13 +136,13 @@
       "name": "Ramen Birria",
       "category": "Ramen",
       "price": 16,
-      "description": "Ramen fusión con birria y toppings.",
+      "description": "Fusion ramen loaded with birria and flavorful toppings.",
       "addOns": [
         { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Pollo", "price": 3 },
+        { "name": "Extra Pollo", "price": 4 },
         { "name": "Poached Egg / Fried Egg", "price": 3 },
         { "name": "Extra Bacon", "price": 3 },
-        { "name": "Aguacate", "price": 3 }
+        { "name": "Guacamole", "price": 2 }
       ]
     },
     {
@@ -153,7 +150,7 @@
       "name": "Horchata",
       "category": "Bebidas Frías",
       "price": 5,
-      "description": "Bebida fresca."
+      "description": "Refreshing house drink."
     }
   ]
 }
