@@ -631,3 +631,62 @@ font:inherit;
   border-radius:10px;
   font-weight:600;
 }
+.truck-exp{
+  padding:90px 0;
+}
+
+.exp-title{
+  text-align:center;
+  font-size:32px;
+}
+
+.exp-sub{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:50px;
+}
+
+.exp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+
+.exp-card{
+  background:#111;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform .25s ease;
+}
+
+.exp-card:hover{
+  transform:translateY(-6px);
+}
+
+.exp-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.exp-content{
+  padding:18px;
+}
+
+.exp-content h3{
+  color:var(--gold);
+}
+
+.exp-cta{
+  text-align:center;
+  margin-top:50px;
+}
+
+.exp-button{
+  background:var(--gold);
+  padding:16px 32px;
+  border-radius:12px;
+  color:black;
+  font-weight:600;
+}
