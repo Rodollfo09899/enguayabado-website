@@ -7,144 +7,42 @@
     "yelpUrl": "PASTE_TU_LINK_YELP"
   },
   "categories": [
-    "Especialidades",
+    "Los Favoritos",
     "Tacos",
-    "Tostadas",
-    "Quesabirria",
-    "Salchipapa",
-    "Choripán",
-    "Patacones / Arepas",
-    "Ramen",
-    "Bebidas Frías"
+    "Burritos",
+    "Sandwiches / Shucos",
+    "Arepas / Street",
+    "Empanadas",
+    "Alitas",
+    "Loaded / Sides",
+    "Guatemala Specials",
+    "Extras",
+    "Bebidas",
+    "Jugos Naturales"
   ],
   "items": [
     {
-      "id": "patacon_sensei_signature",
-      "name": "Patacón Sensei (Signature)",
-      "category": "Especialidades",
-      "price": 18,
-      "description": "Crispy Colombian-style patacón loaded with fresh salad, pico de gallo, queso fundido, guacamole, house sauces, Colombian chorizo, and your choice of protein.",
-      "choices": [
-        {
-          "name": "Pick your protein",
-          "required": true,
-          "options": [
-            { "name": "Birria", "price": 0 },
-            { "name": "Asada", "price": 0 },
-            { "name": "Pollo", "price": 0 }
-          ]
-        }
-      ],
+      "id": "salchipapa_enguayabado",
+      "name": "Salchipapa Enguayabado",
+      "category": "Los Favoritos",
+      "price": 19.5,
+      "description": "Papas, salchicha, maíz, queso fundido, salsas especiales y toppings.",
       "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Extra Guacamole", "price": 2 },
-        { "name": "Extra Queso Fundido", "price": 2 },
-        { "name": "Extra Pico de Gallo", "price": 1 }
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
       ]
     },
     {
-      "id": "street_tacos",
-      "name": "Street Tacos",
-      "category": "Tacos",
-      "price": 12,
-      "description": "Classic street tacos on soft tortillas. Pick your protein and add extras if you want them loaded.",
-      "choices": [
-        {
-          "name": "Pick your protein",
-          "required": true,
-          "options": [
-            { "name": "Birria", "price": 0 },
-            { "name": "Asada", "price": 0 },
-            { "name": "Pollo", "price": 0 }
-          ]
-        }
-      ],
-      "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Guacamole", "price": 2 },
-        { "name": "Queso Fundido", "price": 2 },
-        { "name": "Pico de Gallo", "price": 1 }
-      ]
-    },
-    {
-      "id": "loaded_tostadas",
-      "name": "Loaded Tostadas",
-      "category": "Tostadas",
-      "price": 15,
-      "description": "Crunchy tostadas loaded with fresh salad, queso, guacamole, and house sauces. Choose your protein.",
-      "choices": [
-        {
-          "name": "Pick your protein",
-          "required": true,
-          "options": [
-            { "name": "Birria", "price": 0 },
-            { "name": "Asada", "price": 0 },
-            { "name": "Pollo", "price": 0 }
-          ]
-        }
-      ],
-      "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Extra Guacamole", "price": 2 },
-        { "name": "Extra Queso", "price": 2 },
-        { "name": "Extra Salsa", "price": 1 }
-      ]
-    },
-    {
-      "id": "quesabirria",
-      "name": "Quesabirria",
-      "category": "Quesabirria",
-      "price": 15,
-      "description": "Crispy, cheesy quesabirria served with rich consommé.",
-      "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Queso", "price": 2 },
-        { "name": "Guacamole", "price": 2 }
-      ]
-    },
-    {
-      "id": "loaded_salchipapa",
-      "name": "Loaded Salchipapa",
-      "category": "Salchipapa",
-      "price": 14,
-      "description": "Loaded fries with sausage, house sauces and toppings.",
-      "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Fried Egg", "price": 3 },
-        { "name": "Extra Bacon", "price": 3 },
-        { "name": "Guacamole", "price": 2 }
-      ]
-    },
-    {
-      "id": "choripan",
-      "name": "Choripán",
-      "category": "Choripán",
-      "price": 18,
-      "description": "Toasted bread loaded with Colombian chorizo and bold house flavor.",
-      "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Chorizo", "price": 4 },
-        { "name": "Guacamole", "price": 2 },
-        { "name": "Queso Fundido", "price": 2 }
-      ]
-    },
-    {
-      "id": "patacon_sensei",
+      "id": "patacon_sensei_favorito",
       "name": "Patacón Sensei",
-      "category": "Patacones / Arepas",
-      "price": 18,
-      "description": "Crispy Colombian patacón with house sauces and your choice of protein.",
+      "category": "Los Favoritos",
+      "price": 19.5,
+      "description": "Patacón crujiente con frijoles, carne o pollo, guacamole, queso, maíz, pico de gallo y salsas.",
       "choices": [
         {
-          "name": "Pick your protein",
+          "name": "Elige tu proteína",
           "required": true,
           "options": [
             { "name": "Birria", "price": 0 },
@@ -154,60 +52,436 @@
         }
       ],
       "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Guacamole", "price": 2 },
-        { "name": "Queso Fundido", "price": 2 },
-        { "name": "Maduritos", "price": 5 }
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "birria_ramen",
+      "name": "Birria Ramen",
+      "category": "Los Favoritos",
+      "price": 15,
+      "description": "Ramen en caldo de birria, carne desmechada, cebolla, cilantro y limón.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "quesabirria_3",
+      "name": "Quesabirria (3)",
+      "category": "Tacos",
+      "price": 18.5,
+      "description": "Tortilla de maíz, birria de res, queso derretido, cilantro, cebolla, consomé al lado.",
+      "addOns": [
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "tacos_3",
+      "name": "Tacos (3)",
+      "category": "Tacos",
+      "price": 15,
+      "description": "Pollo o carne, cilantro, cebolla, salsa y limón.",
+      "choices": [
+        {
+          "name": "Elige tu proteína",
+          "required": true,
+          "options": [
+            { "name": "Asada", "price": 0 },
+            { "name": "Pollo", "price": 0 },
+            { "name": "Birria", "price": 0 }
+          ]
+        }
+      ],
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "burrito_enguayabado",
+      "name": "Burrito Enguayabado",
+      "category": "Burritos",
+      "price": 18,
+      "description": "Arroz, frijoles, carne o pollo, queso, lechuga, crema y salsas.",
+      "choices": [
+        {
+          "name": "Elige tu proteína",
+          "required": true,
+          "options": [
+            { "name": "Asada", "price": 0 },
+            { "name": "Pollo", "price": 0 },
+            { "name": "Birria", "price": 0 }
+          ]
+        }
+      ],
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "birria_burrito",
+      "name": "Birria Burrito",
+      "category": "Burritos",
+      "price": 18.75,
+      "description": "Birria de res, arroz, frijoles, queso, cebolla, cilantro, consomé y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "choripan_mixto",
+      "name": "Choripán Mixto",
+      "category": "Sandwiches / Shucos",
+      "price": 18.5,
+      "description": "Chorizo, carne, chimichurri, cebolla, lechuga, tomate, papas sticks y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "shucos_guatemaltecos",
+      "name": "Shucos Guatemaltecos",
+      "category": "Sandwiches / Shucos",
+      "price": 16.25,
+      "description": "Carne, guacamole, lechuga, tomate, cebolla, papas sticks y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "mixtas_guatemaltecas",
+      "name": "Mixtas Guatemaltecas",
+      "category": "Sandwiches / Shucos",
+      "price": 16,
+      "description": "Carne o pollo, guacamole, papas sticks y salsas.",
+      "choices": [
+        {
+          "name": "Elige tu proteína",
+          "required": true,
+          "options": [
+            { "name": "Carne", "price": 0 },
+            { "name": "Pollo", "price": 0 }
+          ]
+        }
+      ],
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
       ]
     },
     {
       "id": "arepa_rellena",
       "name": "Arepa Rellena",
-      "category": "Patacones / Arepas",
-      "price": 13,
-      "description": "Stuffed arepa with your choice of protein and toppings.",
+      "category": "Arepas / Street",
+      "price": 18.25,
+      "description": "Carne o pollo, chorizo, queso, huevo de codorniz y salsas.",
       "choices": [
         {
-          "name": "Pick your protein",
+          "name": "Elige tu proteína",
           "required": true,
           "options": [
-            { "name": "Birria", "price": 0 },
-            { "name": "Asada", "price": 0 },
+            { "name": "Carne", "price": 0 },
             { "name": "Pollo", "price": 0 }
           ]
         }
       ],
       "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Asada", "price": 4 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Guacamole", "price": 2 },
-        { "name": "Queso Fundido", "price": 2 },
-        { "name": "Maduritos", "price": 5 }
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
       ]
     },
     {
-      "id": "ramen_birria",
-      "name": "Ramen Birria",
-      "category": "Ramen",
-      "price": 16,
-      "description": "Fusion ramen loaded with birria and flavorful toppings.",
+      "id": "arepa_burger",
+      "name": "Arepa Burger",
+      "category": "Arepas / Street",
+      "price": 15,
+      "description": "Carne, queso, lechuga, tomate, cebolla y salsas.",
       "addOns": [
-        { "name": "Extra Birria", "price": 5 },
-        { "name": "Extra Pollo", "price": 4 },
-        { "name": "Fried Egg", "price": 3 },
-        { "name": "Extra Bacon", "price": 3 },
-        { "name": "Guacamole", "price": 2 }
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "arepa_chorizo",
+      "name": "Arepa Chorizo",
+      "category": "Arepas / Street",
+      "price": 16.25,
+      "description": "Chorizo colombiano, queso derretido y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "arepa_mixta",
+      "name": "Arepa Mixta",
+      "category": "Arepas / Street",
+      "price": 18,
+      "description": "Carne, chorizo, queso, aguacate y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "empanada",
+      "name": "Empanada",
+      "category": "Empanadas",
+      "price": 5,
+      "description": "Empanada de carne o pollo.",
+      "choices": [
+        {
+          "name": "Elige relleno",
+          "required": true,
+          "options": [
+            { "name": "Carne", "price": 0 },
+            { "name": "Pollo", "price": 0 }
+          ]
+        }
+      ],
+      "addOns": [
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "combo_empanadas_3",
+      "name": "Combo Empanadas (3)",
+      "category": "Empanadas",
+      "price": 12,
+      "description": "Tres empanadas de carne o pollo.",
+      "choices": [
+        {
+          "name": "Elige relleno",
+          "required": true,
+          "options": [
+            { "name": "Carne", "price": 0 },
+            { "name": "Pollo", "price": 0 }
+          ]
+        }
+      ],
+      "addOns": [
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "combo_alitas_8",
+      "name": "Combo Alitas (8)",
+      "category": "Alitas",
+      "price": 10,
+      "description": "Escoge entre alitas BBQ, Buffalo o lemon pepper.",
+      "choices": [
+        {
+          "name": "Elige salsa",
+          "required": true,
+          "options": [
+            { "name": "BBQ", "price": 0 },
+            { "name": "Buffalo", "price": 0 },
+            { "name": "Lemon Pepper", "price": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_alitas_10",
+      "name": "Combo Alitas (10)",
+      "category": "Alitas",
+      "price": 12,
+      "description": "Escoge entre alitas BBQ, Buffalo o lemon pepper.",
+      "choices": [
+        {
+          "name": "Elige salsa",
+          "required": true,
+          "options": [
+            { "name": "BBQ", "price": 0 },
+            { "name": "Buffalo", "price": 0 },
+            { "name": "Lemon Pepper", "price": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_alitas_12",
+      "name": "Combo Alitas (12)",
+      "category": "Alitas",
+      "price": 14,
+      "description": "Escoge entre alitas BBQ, Buffalo o lemon pepper.",
+      "choices": [
+        {
+          "name": "Elige salsa",
+          "required": true,
+          "options": [
+            { "name": "BBQ", "price": 0 },
+            { "name": "Buffalo", "price": 0 },
+            { "name": "Lemon Pepper", "price": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combo_alitas_20",
+      "name": "Combo Alitas (20)",
+      "category": "Alitas",
+      "price": 25,
+      "description": "Escoge entre alitas BBQ, Buffalo o lemon pepper.",
+      "choices": [
+        {
+          "name": "Elige salsa",
+          "required": true,
+          "options": [
+            { "name": "BBQ", "price": 0 },
+            { "name": "Buffalo", "price": 0 },
+            { "name": "Lemon Pepper", "price": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nachos_loaded",
+      "name": "Nachos Loaded",
+      "category": "Loaded / Sides",
+      "price": 18.5,
+      "description": "Nachos con carne, queso, guacamole, pico de gallo, crema y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "papas_con_birria",
+      "name": "Papas con Birria",
+      "category": "Loaded / Sides",
+      "price": 15,
+      "description": "Papas, birria, queso, guacamole y salsas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Guacamole", "price": 3 },
+        { "name": "Queso Fundido", "price": 3 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "tostadas_guatemaltecas",
+      "name": "Tostadas Guatemaltecas",
+      "category": "Guatemala Specials",
+      "price": 6,
+      "description": "Tostada crujiente, frijoles, carne, repollo, crema, queso y salsas.",
+      "addOns": [
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "churrasco_chapin",
+      "name": "Churrasco Chapín",
+      "category": "Guatemala Specials",
+      "price": 20,
+      "description": "Carne a la parrilla, chorizo, plátano, frijoles, aguacate, chimichurri y tortillas.",
+      "addOns": [
+        { "name": "Extra Proteína", "price": 4.5 },
+        { "name": "Salsa Extra", "price": 0.75 }
+      ]
+    },
+    {
+      "id": "guacamole_extra",
+      "name": "Guacamole",
+      "category": "Extras",
+      "price": 3,
+      "description": "Porción extra de guacamole."
+    },
+    {
+      "id": "queso_fundido_extra",
+      "name": "Queso Fundido",
+      "category": "Extras",
+      "price": 3,
+      "description": "Porción extra de queso fundido."
+    },
+    {
+      "id": "salsa_extra",
+      "name": "Salsa Extra",
+      "category": "Extras",
+      "price": 0.75,
+      "description": "Salsa extra de la casa."
+    },
+    {
+      "id": "side_papas_yuca",
+      "name": "Side Papas / Yuca Frita",
+      "category": "Extras",
+      "price": 4,
+      "description": "Acompañamiento de papas o yuca frita."
+    },
+    {
+      "id": "extra_proteina",
+      "name": "Extra Proteína",
+      "category": "Extras",
+      "price": 4.5,
+      "description": "Birria, pollo o carne de res.",
+      "choices": [
+        {
+          "name": "Elige proteína",
+          "required": true,
+          "options": [
+            { "name": "Birria", "price": 0 },
+            { "name": "Pollo", "price": 0 },
+            { "name": "Carne (Res)", "price": 0 }
+          ]
+        }
       ]
     },
     {
       "id": "horchata",
       "name": "Horchata",
-      "category": "Bebidas Frías",
-      "price": 5,
-      "description": "Refreshing house drink."
+      "category": "Bebidas",
+      "price": 7,
+      "description": "Bebida fría de la casa."
+    },
+    {
+      "id": "jamaica",
+      "name": "Jamaica",
+      "category": "Bebidas",
+      "price": 7,
+      "description": "Bebida fría de la casa."
+    },
+    {
+      "id": "soda",
+      "name": "Soda",
+      "category": "Bebidas",
+      "price": 3,
+      "description": "Soda en lata o botella, según disponibilidad."
+    },
+    {
+      "id": "jugo_natural",
+      "name": "Jugos Naturales",
+      "category": "Jugos Naturales",
+      "price": 7,
+      "description": "Jugo natural, sabores según disponibilidad."
     }
   ]
 }
