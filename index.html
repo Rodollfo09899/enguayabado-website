@@ -1,9 +1,8 @@
 <!doctype html>
 <html lang="es">
 <head>
-  
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enguayabado | Catering JR</title>
   <meta name="description" content="Enguayabado by Catering JR. Ordena fácil: arma tu pedido y envíalo por SMS o WhatsApp." />
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -13,10 +12,10 @@
   <header class="header">
     <div class="wrap header__inner">
       <div class="brand">
-        <div class="brand__logo">JR</div>
+        <img class="brand__logo" src="assets/img/enguayabado-logo.svg" alt="Enguayabado Logo" />
         <div class="brand__text">
           <div class="brand__title">Enguayabado</div>
-          <div class="brand__sub">by Catering JR • Bay Area</div>
+          <div class="brand__sub">Mex • Guatemalan • Colombian Food</div>
         </div>
       </div>
 
@@ -85,7 +84,6 @@
 
         <div class="menu-controls">
           <input id="search" class="input" type="search" placeholder="Buscar (tacos, patacón, ramen...)" />
-          
           <select id="category" class="input">
             <option value="all">Todas las categorías</option>
           </select>
@@ -132,22 +130,11 @@
               <input id="custPhone" class="input" placeholder="(415) 000-0000" inputmode="tel" />
 
               <label class="label" for="custDate">Fecha</label>
-<input
-  id="custDate"
-  class="input"
-  type="date"
-  min=""
-/>
+<input id="custDate" class="input" type="date" min=""/>
 
 <label class="label" for="custTime">Hora</label>
-<input
-  id="custTime"
-  class="input"
-  type="time"
-  min="11:00"
-  max="22:00"
-  step="900"
-/>
+<input id="custTime" class="input" type="time" min="11:00" max="22:00" step="900"/>
+
 <label class="label" for="custType">Tipo</label>
 <select id="custType" class="input">
   <option value="pickup">Pickup</option>
@@ -158,25 +145,15 @@
 <label class="label" for="deliveryAddress">Dirección (si aplica)</label>
 
 <div class="field">
-  <input
-    id="deliveryAddress"
-    class="input"
-    type="text"
-    placeholder="Street, City, State, ZIP (ex: 123 Main St, San Bruno, CA 94066)"
-    required
-  />
+  <input id="deliveryAddress" class="input" type="text" placeholder="Street, City, State, ZIP (ex: 123 Main St, San Bruno, CA 94066)" required />
 
   <p class="small muted">
     Delivery distance will be verified after the order is received to confirm the correct delivery fee.
   </p>
 
   <div class="btn-row">
-    <button type="button" class="btn btn--ghost" onclick="verifyGoogleMaps()">
-      Verify Address
-    </button>
-    <button type="button" class="btn btn--ghost" onclick="checkDistance()">
-      Check Distance
-    </button>
+    <button type="button" class="btn btn--ghost" onclick="verifyGoogleMaps()">Verify Address</button>
+    <button type="button" class="btn btn--ghost" onclick="checkDistance()">Check Distance</button>
   </div>
 </div>
 
@@ -184,7 +161,7 @@
 <textarea id="custNotes" class="input" rows="3" placeholder="Sin cebolla, extra salsa, alergias, etc."></textarea>
 
               <div class="btn-row">
-                <button id="sendSms" class="btn btn--primary">Enviar por SMS</button>c
+                <button id="sendSms" class="btn btn--primary">Enviar por SMS</button>
                 <button id="sendWa" class="btn btn--ghost">Enviar por WhatsApp</button>
               </div>
 
@@ -197,182 +174,6 @@
       </div>
     </section>
 
-  <section class="photos-section" id="photos">
-  <div class="wrap">
-    <div class="section__head">
-      <h2>Fotos reales</h2>
-      <p>Tap en cualquier foto para verla grande y revisar el plato.</p>
-    </div>
-
-    <div class="photos-grid-compact">
-      <button
-        type="button"
-        class="photo-card photo-card-lg photo-trigger"
-        data-title="Patacón Sensei"
-        data-price="$16"
-        data-desc="Patacón crujiente con proteína, queso, toppings frescos y salsa de la casa."
-        data-img="images/patacon-sensei-enguayabado-small.webp"
-      >
-        <img src="images/patacon-sensei-enguayabado-small.webp" alt="Patacón Sensei">
-        <span class="photo-label">Patacón Sensei</span>
-      </button>
-
-      <button
-        type="button"
-        class="photo-card photo-trigger"
-        data-title="Tostadas"
-        data-price="$14"
-        data-desc="Tostada crujiente con base de aguate y tus topings."
-        data-img="images/tostada-enguayabado-small.webp"
-      >
-        <img src="images/tostada-enguayabado-small.webp" alt="Birria Tostada">
-        <span class="photo-label">Tostadas</span>
-      </button>
-
-      <button
-        type="button"
-        class="photo-card photo-trigger"
-        data-title="Choriperro"
-        data-price="$15"
-        data-desc="Sandwich Enguayabado con chorizo y tus toppings."
-        data-img="images/chorriperro-enguayabado-small.webp"
-      >
-        <img src="images/chorriperro-enguayabado-small.webp" alt="Choriperro">
-        <span class="photo-label">Choriperro</span>
-      </button>
-    </div>
-  </div>
-</section>
-<section id="truck-experience" class="section truck-exp">
-  <div class="wrap">
-
-    <h2 class="exp-title">The Catering JR Truck Experience</h2>
-    <p class="exp-sub">
-      Bring a unique street food experience to your private event.
-    </p>
-
-    <div class="exp-grid">
-
-      <div class="exp-card">
-        <img src="images/tacos-truck.webp" alt="Taco Experience">
-        <div class="exp-content">
-          <h3>Taco Night Experience</h3>
-          <p>Live tacos cooked from our truck at your private party.</p>
-        </div>
-      </div>
-
-      <div class="exp-card">
-        <img src="images/wedding-truck.webp" alt="Wedding Snacks">
-        <div class="exp-content">
-          <h3>Wedding Late Night Snacks</h3>
-          <p>Surprise guests with tacos, birria ramen or street food.</p>
-        </div>
-      </div>
-
-      <div class="exp-card">
-        <img src="images/truck-photo.webp" alt="Photo Booth Truck">
-        <div class="exp-content">
-          <h3>Food Truck Photo Booth</h3>
-          <p>A unique backdrop for weddings, quinceañeras and events.</p>
-        </div>
-      </div>
-
-      <div class="exp-card">
-        <img src="images/bar-truck.webp" alt="Mobile Bar">
-        <div class="exp-content">
-          <h3>Mobile Bar Truck</h3>
-          <p>Margaritas, micheladas, espresso or aguas frescas bar.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="exp-cta">
-      <a href="https://wa.me/14153496404" class="exp-button">
-        Book the Experience
-      </a>
-    </div>
-
-  </div>
-</section>
-    <section class="section section--alt" id="reviews">
-      <div class="wrap">
-        <div class="section__head">
-          <h2>Reviews</h2>
-          <p>Links ligeros a Google/Yelp.</p>
-        </div>
-
-        <div class="reviews">
-          <div class="review">
-            <div class="stars">★★★★★</div>
-            <p>“Sabor brutal y presentación VIP.”</p>
-            <div class="muted small">— Cliente</div>
-          </div>
-
-          <div class="review">
-            <div class="stars">★★★★★</div>
-            <p>“Todo caliente, organizado y profesional.”</p>
-            <div class="muted small">— Cliente</div>
-          </div>
-
-          <div class="review">
-            <div class="stars">★★★★★</div>
-            <p>“Las salsas están en otro nivel.”</p>
-            <div class="muted small">— Cliente</div>
-          </div>
-        </div>
-
-        <div class="review-links">
-          <a class="btn btn--primary" id="googleReviewLink" href="#" target="_blank" rel="noreferrer">Dejar review en Google</a>
-          <a class="btn btn--ghost" id="yelpLink" href="#" target="_blank" rel="noreferrer">Ver Yelp</a>
-        </div>
-      </div>
-    </section>
-
-        <section class="section" id="contact">
-      <div class="wrap">
-        <div class="section__head">
-          <h2>Contacto</h2>
-          <p>Listo para pedidos directos.</p>
-        </div>
-
-        <div class="contact">
-          <div class="card">
-            <div class="card__title">Teléfono</div>
-            <div class="card__body">
-              <a id="phoneLink" class="link" href="#">Llamar / SMS</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card__title">Instagram</div>
-            <div class="card__body">
-              <a id="igLink" class="link" href="#" target="_blank" rel="noreferrer">Abrir IG</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card__title">Ubicación</div>
-            <div class="card__body">
-              <div class="muted">Bay Area</div>
-            </div>
-          </div>
-        </div>
-
-        <footer class="footer">
-          <div class="muted small">© <span id="year"></span> Catering JR • Enguayabado</div>
-        </footer>
-      </div>
-    </section>
-  </main>
-
   <script src="assets/js/app.js"></script>
-  
-  <div id="galleryModal" class="gallery-modal">
-  <div class="gallery-content">
-    <span id="closeGallery" class="gallery-close">×</span>
-    <div id="galleryGrid" class="gallery-grid"></div>
-  </div>
-</div>
 </body>
 </html>
