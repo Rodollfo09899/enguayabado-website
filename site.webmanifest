@@ -1,0 +1,17 @@
+{
+  "name": "Enguayabado",
+  "short_name": "Enguayabado",
+  "description": "Mex, Guatemalan and Colombian street food in the Bay Area.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#ffd51f",
+  "icons": [
+    {
+      "src": "assets/img/enguayabado-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
