@@ -672,3 +672,41 @@ if (galleryModal) {
     }
   });
 }
+
+function setLanguage(lang) {
+
+  const t = {
+    en: {
+      menu: "Menu",
+      order: "Order",
+      photos: "Photos",
+      location: "Location"
+    },
+
+    es: {
+      menu: "Menú",
+      order: "Ordenar",
+      photos: "Fotos",
+      location: "Ubicación"
+    }
+  };
+
+  document.getElementById("menuText").textContent =
+    t[lang].menu;
+
+  document.getElementById("orderText").textContent =
+    t[lang].order;
+
+  document.getElementById("photosText").textContent =
+    t[lang].photos;
+
+  document.getElementById("locationText").textContent =
+    t[lang].location;
+
+  localStorage.setItem("language", lang);
+}
+
+const savedLanguage =
+  localStorage.getItem("language") || "en";
+
+setLanguage(savedLanguage);
