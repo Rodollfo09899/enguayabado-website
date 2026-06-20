@@ -36,6 +36,7 @@ const els = {
   phoneLink: document.getElementById('phoneLink'),
   igLink: document.getElementById('igLink'),
 
+  reviewsTrack: document.getElementById('reviewsTrack'),
   galleryModal: document.getElementById('galleryModal'),
   closeGallery: document.getElementById('closeGallery'),
   modalImage: document.getElementById('modalImage'),
@@ -47,25 +48,39 @@ const els = {
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
+  injectFixesStylesheet();
   wireStaticUi();
   showSkeleton();
   await loadMenuData();
   hydrateBusinessLinks();
   renderCategories();
+  renderReviews();
   applyFilters();
   renderCart();
   setMinDate();
   setYear();
 }
 
+function injectFixesStylesheet() {
+  if (document.querySelector('link[href="assets/css/fixes.css"]')) return;
+
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'assets/css/fixes.css';
+  document.head.appendChild(link);
+}
+
 function wireStaticUi() {
   els.search?.addEventListener('input', applyFilters);
+
   els.category?.addEventListener('change', () => {
     syncActiveChip(els.category.value || 'all');
     applyFilters();
   });
+
   els.sendSms?.addEventListener('click', sendOrderBySms);
   els.sendWa?.addEventListener('click', sendOrderByWhatsApp);
+
   els.stickyCart?.addEventListener('click', () => {
     document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' });
   });
@@ -75,6 +90,7 @@ function wireStaticUi() {
   });
 
   els.closeGallery?.addEventListener('click', closeGallery);
+
   els.galleryModal?.addEventListener('click', (event) => {
     if (event.target === els.galleryModal) closeGallery();
   });
@@ -113,6 +129,7 @@ async function loadMenuData() {
 
 function showSkeleton() {
   if (!els.skeletonGrid) return;
+
   els.skeletonGrid.innerHTML = Array.from({ length: 6 }).map(() => `
     <div class="item skeleton-card">
       <div class="item-body">
@@ -165,30 +182,49 @@ function renderCategories() {
     els.category.value = state.categories.includes(currentValue) ? currentValue : 'all';
   }
 
-  if (els.categoryChips) {
-    const chips = ['all', ...state.categories];
-    els.categoryChips.innerHTML = chips.map((cat) => `
-      <button class="chip${cat === 'all' ? ' is-active' : ''}" type="button" data-category-chip="${escapeHtml(cat)}">
-        ${cat === 'all' ? 'All' : escapeHtml(cat)}
-      </button>
-    `).join('');
+  if (!els.categoryChips) return;
 
-    els.categoryChips.querySelectorAll('[data-category-chip]').forEach((chip) => {
-      chip.addEventListener('click', () => {
-        const value = chip.dataset.categoryChip || 'all';
-        if (els.category) els.category.value = value;
-        syncActiveChip(value);
-        applyFilters();
-      });
+  const chips = ['all', ...state.categories];
+  els.categoryChips.innerHTML = chips.map((cat) => `
+    <button class="category-chip${cat === 'all' ? ' active' : ''}" type="button" data-category-chip="${escapeHtml(cat)}">
+      ${cat === 'all' ? 'All' : escapeHtml(cat)}
+    </button>
+  `).join('');
+
+  els.categoryChips.querySelectorAll('[data-category-chip]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const value = chip.dataset.categoryChip || 'all';
+      if (els.category) els.category.value = value;
+      syncActiveChip(value);
+      applyFilters();
     });
-  }
+  });
 }
 
 function syncActiveChip(value) {
   if (!els.categoryChips) return;
+
   els.categoryChips.querySelectorAll('[data-category-chip]').forEach((chip) => {
-    chip.classList.toggle('is-active', chip.dataset.categoryChip === value);
+    chip.classList.toggle('active', chip.dataset.categoryChip === value);
   });
+}
+
+function renderReviews() {
+  if (!els.reviewsTrack || els.reviewsTrack.children.length) return;
+
+  const reviews = [
+    { name: 'Customer', text: 'The flavors are strong, fresh, and different from regular food truck food.' },
+    { name: 'Bay Area order', text: 'Easy ordering and the portions were worth it.' },
+    { name: 'Event client', text: 'Great Latin fusion, fast response, and solid presentation.' }
+  ];
+
+  els.reviewsTrack.innerHTML = reviews.map((review) => `
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>${escapeHtml(review.text)}</p>
+      <strong>${escapeHtml(review.name)}</strong>
+    </article>
+  `).join('');
 }
 
 function applyFilters() {
@@ -331,7 +367,11 @@ function addConfiguredItemToCart(itemId) {
 
   if (qtyInput) qtyInput.value = '1';
   if (noteInput) noteInput.value = '';
-  document.querySelectorAll(`input[data-addon-item="${cssEscape(itemId)}"]:checked`).forEach((input) => input.checked = false);
+
+  document.querySelectorAll(`input[data-addon-item="${cssEscape(itemId)}"]:checked`).forEach((input) => {
+    input.checked = false;
+  });
+
   resetRequiredChoices(item);
   renderCart();
 }
@@ -376,6 +416,7 @@ function resetRequiredChoices(item) {
 function changeQty(cartId, delta) {
   const row = state.cart.find((x) => x.cartId === cartId);
   if (!row) return;
+
   row.qty += delta;
   if (row.qty <= 0) state.cart = state.cart.filter((x) => x.cartId !== cartId);
   renderCart();
@@ -395,6 +436,7 @@ function renderCart() {
     els.cartEmpty.style.display = '';
   } else {
     els.cartEmpty.style.display = 'none';
+
     for (const row of state.cart) {
       const line = document.createElement('div');
       line.className = 'cart__item';
@@ -432,6 +474,7 @@ function renderCart() {
 
   const subtotal = getSubtotal();
   const count = state.cart.reduce((sum, row) => sum + row.qty, 0);
+
   els.subtotal.textContent = money(subtotal);
   if (els.stickyCartCount) els.stickyCartCount.textContent = String(count);
   if (els.stickyCartTotal) els.stickyCartTotal.textContent = money(subtotal);
@@ -490,6 +533,7 @@ function sendOrderBySms() {
 
   const msg = buildOrderMessage();
   const smsPhone = state.business._smsPhone || '';
+
   window.location.href = smsPhone
     ? `sms:${smsPhone}?body=${encodeURIComponent(msg)}`
     : `sms:?body=${encodeURIComponent(msg)}`;
@@ -506,6 +550,7 @@ function sendOrderByWhatsApp() {
   const href = waPhone
     ? `https://wa.me/${waPhone}?text=${encodeURIComponent(msg)}`
     : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+
   window.open(href, '_blank', 'noopener,noreferrer');
 }
 
@@ -515,25 +560,30 @@ function getAddressValue() {
 
 function verifyGoogleMaps() {
   const address = getAddressValue();
+
   if (!address) {
     alert('Escribe tu dirección completa primero.');
     return;
   }
+
   window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`, '_blank', 'noopener,noreferrer');
 }
 
 function checkDistance() {
   const address = getAddressValue();
+
   if (!address) {
     alert('Escribe tu dirección completa primero.');
     return;
   }
+
   const origin = encodeURIComponent(state.business.trailerAddress || '815 South B Street, San Mateo, CA');
   window.open(`https://www.google.com/maps/dir/${origin}/${encodeURIComponent(address)}`, '_blank', 'noopener,noreferrer');
 }
 
 function openGallery(src, title) {
   if (!els.galleryModal || !els.modalImage) return;
+
   els.modalImage.src = src || '';
   els.modalImage.alt = title || 'Enguayabado photo';
   if (els.modalTitle) els.modalTitle.textContent = title || '';
@@ -543,6 +593,7 @@ function openGallery(src, title) {
 
 function closeGallery() {
   if (!els.galleryModal) return;
+
   els.galleryModal.classList.remove('active');
   els.galleryModal.setAttribute('aria-hidden', 'true');
   if (els.modalImage) els.modalImage.src = '';
@@ -550,6 +601,7 @@ function closeGallery() {
 
 function setMinDate() {
   if (!els.custDate) return;
+
   const now = new Date();
   const yyyy = now.getFullYear();
   const mm = String(now.getMonth() + 1).padStart(2, '0');
