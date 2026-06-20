@@ -1,0 +1,64 @@
+/* Safe fixes layered after the main stylesheet */
+
+.hero:before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, .82), rgba(0, 0, 0, .45)), url('../../images/patacon-sensei-enguayabado-small.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.category-chip,
+.chip {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 11px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid var(--line);
+  font-family: system-ui;
+  font-weight: 1000;
+  color: var(--muted);
+  cursor: pointer;
+  min-height: 46px;
+}
+
+.category-chip.active,
+.category-chip.is-active,
+.chip.active,
+.chip.is-active {
+  background: var(--yellow);
+  color: #070707;
+  border-color: var(--blue);
+  box-shadow: var(--glow);
+}
+
+.skeleton-grid:not(:empty) {
+  display: grid;
+}
+
+.skeleton-line {
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .14);
+  margin: 12px 0;
+}
+
+.skeleton-line.short {
+  width: 62%;
+}
+
+.gallery-modal[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+.gallery-modal.active {
+  pointer-events: auto;
+}
+
+.reviews-track:empty {
+  display: none;
+}
+
+.brand__logo,
+.phone-card img {
+  background: #111;
+}
