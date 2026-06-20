@@ -1,10 +1,93 @@
 /* Safe fixes layered after the main stylesheet */
-:root{--enguayabado-logo-url:url("data:image/jpeg;base64,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")}
-.hero:before{background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.45)),url('../../images/patacon-sensei-enguayabado-small.webp');background-size:cover;background-position:center}
-.category-chip,.chip{flex:0 0 auto;scroll-snap-align:start;padding:11px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-family:system-ui;font-weight:1000;color:var(--muted);cursor:pointer;min-height:46px}
-.category-chip.active,.category-chip.is-active,.chip.active,.chip.is-active{background:var(--yellow);color:#070707;border-color:var(--blue);box-shadow:var(--glow)}
-.skeleton-grid:not(:empty){display:grid}.skeleton-line{height:16px;border-radius:999px;background:rgba(255,255,255,.14);margin:12px 0}.skeleton-line.short{width:62%}.gallery-modal[aria-hidden="true"]{pointer-events:none}.gallery-modal.active{pointer-events:auto}.reviews-track:empty{display:none}
-.brand__logo,.phone-card>img{display:none!important}
-.brand::before{content:"";width:58px;height:58px;border-radius:999px;flex:0 0 58px;display:block;background-image:var(--enguayabado-logo-url);background-size:cover;background-position:center;border:2px solid var(--blue);box-shadow:0 0 0 4px rgba(255,213,31,.08),var(--glow)}
-.phone-card::before{content:"";width:100%;aspect-ratio:1/1;border-radius:26px;display:block;background-image:var(--enguayabado-logo-url);background-size:cover;background-position:center;border:2px solid var(--blue);margin-bottom:12px;box-shadow:var(--glow)}
-@media(max-width:680px){.brand::before{width:48px;height:48px;flex-basis:48px}}
+
+.hero:before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, .82), rgba(0, 0, 0, .45)), url('../../images/patacon-sensei-enguayabado-small.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.category-chip,
+.chip {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 11px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid var(--line);
+  font-family: system-ui;
+  font-weight: 1000;
+  color: var(--muted);
+  cursor: pointer;
+  min-height: 46px;
+}
+
+.category-chip.active,
+.category-chip.is-active,
+.chip.active,
+.chip.is-active {
+  background: var(--yellow);
+  color: #070707;
+  border-color: var(--blue);
+  box-shadow: var(--glow);
+}
+
+.skeleton-grid:not(:empty) {
+  display: grid;
+}
+
+.skeleton-line {
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .14);
+  margin: 12px 0;
+}
+
+.skeleton-line.short {
+  width: 62%;
+}
+
+.gallery-modal[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+.gallery-modal.active {
+  pointer-events: auto;
+}
+
+.reviews-track:empty {
+  display: none;
+}
+
+.brand::before,
+.phone-card::before {
+  display: none;
+}
+
+.brand__logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #111;
+  border: 2px solid var(--blue);
+  box-shadow: 0 0 0 4px rgba(255, 213, 31, .08), var(--glow);
+}
+
+.phone-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 26px;
+  object-fit: cover;
+  background: #111;
+  border: 2px solid var(--blue);
+  box-shadow: var(--glow);
+}
+
+@media(max-width:680px) {
+  .brand__logo {
+    width: 58px;
+    height: 58px;
+  }
+}
