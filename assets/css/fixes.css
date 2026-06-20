@@ -59,6 +59,50 @@
 }
 
 .brand__logo,
-.phone-card img {
-  background: #111;
+.phone-card > img {
+  display: none !important;
+}
+
+.brand::before {
+  content: "E";
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  flex: 0 0 58px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 25%, #fff8df, #ffd51f 42%, #0b1410 43%, #050505 72%);
+  border: 2px solid var(--blue);
+  color: #050505;
+  font-family: Impact, Arial Black, sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  box-shadow: 0 0 0 4px rgba(255, 213, 31, .08), var(--glow);
+}
+
+.phone-card::before {
+  content: "ENGUAYABADO";
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 26px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 25%, #fff8df, #ffd51f 38%, #0b1410 39%, #050505 72%);
+  border: 2px solid var(--blue);
+  color: #ffd51f;
+  font-family: Impact, Arial Black, sans-serif;
+  font-size: clamp(28px, 4vw, 58px);
+  letter-spacing: 1px;
+  text-shadow: 0 4px 0 #050505;
+  margin-bottom: 12px;
+  box-shadow: var(--glow);
+}
+
+@media(max-width:680px) {
+  .brand::before {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    font-size: 28px;
+  }
 }
