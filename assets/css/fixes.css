@@ -1,5 +1,14 @@
 /* Safe fixes layered after the main stylesheet */
 
+.text-link {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sticky-cart { display: none; }
+.sticky-cart.has-items { display: flex; }
+
 .hero:before {
   background: linear-gradient(90deg, rgba(0, 0, 0, .82), rgba(0, 0, 0, .45)), url('../../images/patacon-sensei-enguayabado-small.webp');
   background-size: cover;

@@ -32,11 +32,9 @@ const els = {
   sendWa: document.getElementById('sendWa'),
 
   googleReviewLink: document.getElementById('googleReviewLink'),
-  yelpLink: document.getElementById('yelpLink'),
   phoneLink: document.getElementById('phoneLink'),
   igLink: document.getElementById('igLink'),
 
-  reviewsTrack: document.getElementById('reviewsTrack'),
   galleryModal: document.getElementById('galleryModal'),
   closeGallery: document.getElementById('closeGallery'),
   modalImage: document.getElementById('modalImage'),
@@ -54,7 +52,6 @@ async function init() {
   await loadMenuData();
   hydrateBusinessLinks();
   renderCategories();
-  renderReviews();
   applyFilters();
   renderCart();
   setMinDate();
@@ -150,11 +147,9 @@ function hydrateBusinessLinks() {
   const waPhone = safeStr(state.business.whatsAppPhoneE164);
   const instagramUrl = safeStr(state.business.instagramUrl);
   const googleReviewUrl = safeStr(state.business.googleReviewUrl);
-  const yelpUrl = safeStr(state.business.yelpUrl);
 
   setLink(els.igLink, instagramUrl);
   setLink(els.googleReviewLink, googleReviewUrl);
-  setLink(els.yelpLink, yelpUrl);
 
   if (phoneE164) setLink(els.phoneLink, `tel:${phoneE164}`);
 
@@ -207,24 +202,6 @@ function syncActiveChip(value) {
   els.categoryChips.querySelectorAll('[data-category-chip]').forEach((chip) => {
     chip.classList.toggle('active', chip.dataset.categoryChip === value);
   });
-}
-
-function renderReviews() {
-  if (!els.reviewsTrack || els.reviewsTrack.children.length) return;
-
-  const reviews = [
-    { name: 'Customer', text: 'The flavors are strong, fresh, and different from regular food truck food.' },
-    { name: 'Bay Area order', text: 'Easy ordering and the portions were worth it.' },
-    { name: 'Event client', text: 'Great Latin fusion, fast response, and solid presentation.' }
-  ];
-
-  els.reviewsTrack.innerHTML = reviews.map((review) => `
-    <article class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>${escapeHtml(review.text)}</p>
-      <strong>${escapeHtml(review.name)}</strong>
-    </article>
-  `).join('');
 }
 
 function applyFilters() {
@@ -577,7 +554,7 @@ function checkDistance() {
     return;
   }
 
-  const origin = encodeURIComponent(state.business.trailerAddress || '815 South B Street, San Mateo, CA');
+  const origin = encodeURIComponent(state.business.trailerAddress || '1515 S El Camino Real, San Mateo, CA');
   window.open(`https://www.google.com/maps/dir/${origin}/${encodeURIComponent(address)}`, '_blank', 'noopener,noreferrer');
 }
 
