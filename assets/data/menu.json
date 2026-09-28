@@ -7,13 +7,13 @@
     "trailerAddress": "1515 S El Camino Real, San Mateo, CA",
     "commissaryAddress": "1610 El Camino Real, San Bruno, CA",
     "hours": {
-      "monday": "4:00 PM - 10:00 PM",
-      "tuesday": "Closed",
-      "wednesday": "Closed",
-      "thursday": "4:00 PM - 10:00 PM",
-      "friday": "4:00 PM - 10:00 PM",
-      "saturday": "10:00 AM - 10:00 PM",
-      "sunday": "10:00 AM - 10:00 PM"
+      "monday": "5:00 PM - 11:00 PM",
+      "tuesday": "5:00 PM - 11:00 PM",
+      "wednesday": "5:00 PM - 11:00 PM",
+      "thursday": "5:00 PM - 11:00 PM",
+      "friday": "5:00 PM - 11:00 PM",
+      "saturday": "5:00 PM - 11:00 PM",
+      "sunday": "Closed"
     }
   },
   "categories": ["Los Favoritos","Tacos","Burritos","Sandwiches / Shucos","Arepas / Street","Empanadas","Alitas","Loaded / Sides","Guatemala Specials","Extras","Bebidas","Jugos Naturales"],
